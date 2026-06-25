@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NJ Land Intelligence — Full Parcel Report</title>
+<style>
+:root {
+  --g: #1a4d2e; --g2: #2d7a4f; --g3: #e8f5ee;
+  --ink: #1a1a1a; --ink2: #4a4a4a; --ink3: #888;
+  --bd: #ddd9d0; --bg: #f9f8f4; --bg2: #f0ede5;
+  --warn: #92400e; --warn-bg: #fef3c7;
+  --danger: #991b1b; --danger-bg: #fee2e2;
+  --ok: #166534; --ok-bg: #dcfce7;
+  --blue: #1e40af; --blue-bg: #dbeafe;
+  --r: 8px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; }
+
+/* Header */
+.hdr { background: var(--g); padding: 0; }
+.hdr-inner { max-width: 860px; margin: 0 auto; padding: 18px 24px; display: flex; justify-content: space-between; align-items: center; }
+.hdr-brand { display: flex; align-items: center; gap: 12px; }
+.hdr-logo { width: 38px; height: 38px; border: 1.5px solid rgba(255,255,255,.4); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+.hdr-logo svg { width: 22px; height: 22px; }
+.hdr-title { color: #fff; font-size: 17px; font-weight: 600; letter-spacing: -.01em; }
+.hdr-sub { color: rgba(255,255,255,.55); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; margin-top: 1px; }
+.hdr-badge { background: rgba(255,255,255,.12); color: rgba(255,255,255,.8); font-size: 11px; padding: 4px 10px; border-radius: 20px; letter-spacing: .04em; }
+
+/* Layout */
+.wrap { max-width: 860px; margin: 0 auto; padding: 24px 20px; }
+
+/* Search */
+.search-box { background: #fff; border: 1px solid var(--bd); border-radius: var(--r); padding: 20px 22px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+.search-label { font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--ink3); margin-bottom: 10px; display: block; }
+.search-row { display: flex; gap: 10px; }
+.search-input { flex: 1; font-size: 14px; padding: 11px 14px; border: 1.5px solid var(--bd); border-radius: 7px; background: var(--bg); color: var(--ink); outline: none; transition: border-color .15s; }
+.search-input:focus { border-color: var(--g2); background: #fff; }
+.search-btn { background: var(--g); color: #fff; border: none; padding: 11px 24px; border-radius: 7px; font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: background .15s; }
+.search-btn:hover { background: var(--g2); }
+.search-btn:disabled { background: var(--ink3); cursor: not-allowed; }
+.search-hint { font-size: 11px; color: var(--ink3); margin-top: 8px; }
+
+/* Status */
+.status { font-size: 13px; padding: 11px 14px; border-radius: 7px; margin-bottom: 16px; display: none; border-left: 3px solid; }
+.status.loading { background: var(--g3); color: var(--g); border-color: var(--g2); display: block; }
+.status.error { background: var(--danger-bg); color: var(--danger); border-color: var(--danger); display: block; }
+.status.ok { background: var(--ok-bg); color: var(--ok); border-color: var(--g2); display: block; }
+
+/* Score strip */
+.score-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 18px; }
+.ss-item { background: #fff; border: 1px solid var(--bd); border-radius: var(--r); padding: 12px 14px; }
+.ss-label { font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink3); margin-bottom: 4px; }
+.ss-val { font-size: 15px; font-weight: 700; }
+.ss-val.ok { color: var(--ok); }
+.ss-val.warn { color: var(--warn); }
+.ss-val.danger { color: var(--danger); }
+.ss-val.pending { color: var(--ink3); }
+
+/* Map */
+.map-container { border: 1px solid var(--bd); border-radius: var(--r); overflow: hidden; margin-bottom: 18px; height: 220px; background: var(--bg2); display: flex; align-items: center; justify-content: center; color: var(--ink3); font-size: 13px; }
+
+/* Section */
+.section-title { font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--ink3); margin: 20px 0 10px; display: flex; align-items: center; gap: 8px; }
+.section-title::after { content: ''; flex: 1; height: 1px; background: var(--bd); }
+
+/* Data card */
+.dcard { background: #fff; border: 1px solid var(--bd); border-radius: var(--r); overflow: hidden; margin-bottom: 12px; }
+.dcard-head { background: var(--bg2); padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--bd); }
+.dcard-title { font-size: 13px; font-weight: 600; color: var(--ink); }
+.verdict { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+.v-clear { background: var(--ok-bg); color: var(--ok); }
+.v-risk { background: var(--warn-bg); color: var(--warn); }
+.v-stop { background: var(--danger-bg); color: var(--danger); }
+.v-na { background: #f1f5f9; color: #64748b; }
+.v-blue { background: var(--blue-bg); color: var(--blue); }
+
+.drow { display: flex; justify-content: space-between; align-items: flex-start; padding: 9px 16px; border-bottom: 1px solid #f8f7f4; font-size: 13px; }
+.drow:last-child { border-bottom: none; }
+.dk { color: var(--ink3); min-width: 160px; flex-shrink: 0; }
+.dv { color: var(--ink); font-weight: 500; text-align: right; flex: 1; }
+.dv.ok { color: var(--ok); }
+.dv.warn { color: var(--warn); }
+.dv.danger { color: var(--danger); }
+.dv.blue { color: var(--blue); }
+
+/* Score section */
+.score-section { padding: 18px 16px; border-bottom: 1px solid var(--bd); display: flex; align-items: center; gap: 20px; }
+.score-big { font-size: 52px; font-weight: 700; color: var(--g); line-height: 1; }
+.score-meta { flex: 1; }
+.score-label { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink3); margin-bottom: 8px; }
+.score-bar { height: 8px; background: var(--bd); border-radius: 4px; overflow: hidden; }
+.score-fill { height: 100%; border-radius: 4px; background: var(--g); transition: width 1s ease; }
+.score-note { font-size: 11px; color: var(--ink3); margin-top: 6px; }
+
+/* Flags */
+.flag-item { display: flex; gap: 12px; padding: 9px 16px; font-size: 13px; border-bottom: 1px solid #f8f7f4; align-items: flex-start; }
+.flag-item:last-child { border-bottom: none; }
+.flag-icon { font-size: 15px; min-width: 20px; }
+.flag-text { color: var(--ink2); line-height: 1.5; }
+
+/* Empty state */
+.empty { text-align: center; padding: 60px 20px; color: var(--ink3); }
+.empty-icon { font-size: 40px; opacity: .3; margin-bottom: 14px; }
+
+/* Progress steps */
+.progress { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+.ps { font-size: 11px; padding: 3px 9px; border-radius: 20px; background: #f1f5f9; color: #64748b; }
+.ps.active { background: var(--g3); color: var(--g); font-weight: 600; }
+.ps.done { background: var(--ok-bg); color: var(--ok); }
+.ps.fail { background: var(--danger-bg); color: var(--danger); }
+
+#results { display: none; }
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-inner">
+    <div class="hdr-brand">
+      <div class="hdr-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </div>
+      <div>
+        <div class="hdr-title">NJ Land Intelligence</div>
+        <div class="hdr-sub">Full parcel due diligence · Live government data</div>
+      </div>
+    </div>
+    <div class="hdr-badge">Point 1 — Parcel + Environmental</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="search-box">
+    <span class="search-label">Enter any New Jersey property address</span>
+    <div class="search-row">
+      <input class="search-input" id="addr" type="text"
+        placeholder="e.g. 0 Halfway House Road, Washington NJ 07882"
+        value="0 Halfway House Road, Washington NJ 07882"
+        onkeydown="if(event.key==='Enter')analyze()"/>
+      <button class="search-btn" id="btn" onclick="analyze()">Analyze →</button>
+    </div>
+    <div class="search-hint">Street address with zip code works best · Google Maps links also accepted</div>
+  </div>
+
+  <div id="progress-bar" style="margin-bottom:12px;display:none">
+    <div class="progress">
+      <span class="ps" id="ps0">Geocoding</span>
+      <span class="ps" id="ps1">Parcel</span>
+      <span class="ps" id="ps2">Wetlands</span>
+      <span class="ps" id="ps3">Flood</span>
+      <span class="ps" id="ps4">Highlands</span>
+      <span class="ps" id="ps5">Score</span>
+    </div>
+  </div>
+
+  <div class="status" id="status"></div>
+
+  <div id="results">
+
+    <div class="score-strip">
+      <div class="ss-item"><div class="ss-label">Wetlands</div><div class="ss-val pending" id="c-wet">—</div></div>
+      <div class="ss-item"><div class="ss-label">Flood Zone</div><div class="ss-val pending" id="c-fld">—</div></div>
+      <div class="ss-item"><div class="ss-label">Highlands</div><div class="ss-val pending" id="c-hld">—</div></div>
+      <div class="ss-item"><div class="ss-label">Pinelands</div><div class="ss-val pending" id="c-pin">—</div></div>
+      <div class="ss-item"><div class="ss-label">Score</div><div class="ss-val pending" id="c-scr">—</div></div>
+    </div>
+
+    <div class="map-container" id="mapDiv">📍 Satellite map loads after parcel identified</div>
+
+    <div class="section-title">Parcel Identity</div>
+    <div class="dcard"><div id="parcelRows"></div></div>
+
+    <div class="section-title">Environmental Checks</div>
+    <div class="dcard">
+      <div class="dcard-head"><span class="dcard-title">Wetlands (NJDEP 2020 Land Use)</span><span class="verdict v-na" id="wet-v">Pending</span></div>
+      <div id="wetRows"></div>
+    </div>
+    <div class="dcard">
+      <div class="dcard-head"><span class="dcard-title">FEMA Flood Zones (NFHL)</span><span class="verdict v-na" id="fld-v">Pending</span></div>
+      <div id="fldRows"></div>
+    </div>
+    <div class="dcard">
+      <div class="dcard-head"><span class="dcard-title">NJ Highlands Designation</span><span class="verdict v-na" id="hld-v">Pending</span></div>
+      <div id="hldRows"></div>
+    </div>
+    <div class="dcard">
+      <div class="dcard-head"><span class="dcard-title">Pinelands Designation</span><span class="verdict v-na" id="pin-v">Pending</span></div>
+      <div id="pinRows"></div>
+    </div>
+
+    <div class="section-title">Financial Summary</div>
+    <div class="dcard"><div id="finRows"></div></div>
+
+    <div class="section-title">Composite Score & Verdict</div>
+    <div class="dcard">
+      <div class="dcard-head"><span class="dcard-title">Overall Assessment</span><span class="verdict v-na" id="overall-v">—</span></div>
+      <div class="score-section">
+        <div class="score-big" id="scoreNum">—</div>
+        <div class="score-meta">
+          <div class="score-label">Composite score out of 100</div>
+          <div class="score-bar"><div class="score-fill" id="scoreFill" style="width:0%"></div></div>
+          <div class="score-note">Threshold: 70+ = pursue · 50–69 = conditional · below 50 = pass</div>
+        </div>
+      </div>
+      <div id="flagsDiv"></div>
+    </div>
+
+  </div>
+
+  <div class="empty" id="emptyState">
+    <div class="empty-icon">🗺</div>
+    <div style="font-size:15px;font-weight:600;color:var(--ink2);margin-bottom:6px">Enter a New Jersey address above</div>
+    <div style="font-size:13px">Parcel data · Wetlands · Flood zones · Highlands · Financial summary · Score</div>
+    <div style="font-size:11px;color:#bbb;margin-top:6px">All data pulled live from NJ government APIs</div>
+  </div>
+
+</div>
+
+<script>
+const GKEY = 'AIzaSyDxv-qojkNk2lUOS12D2VwrRUN0VXhhRvk';
+
+// Helpers
+const $ = id => document.getElementById(id);
+const DR = (k,v,c='') => `<div class="drow"><span class="dk">${k}</span><span class="dv ${c}">${v}</span></div>`;
+const FL = (icon,text) => `<div class="flag-item"><span class="flag-icon">${icon}</span><span class="flag-text">${text}</span></div>`;
+const PM = {'1':'Vacant Land','2':'Residential (1–4 units)','3A':'Farm (Regular)','3B':'Farm (Qualified/QFARM)','4A':'Commercial','4B':'Industrial','4C':'Apartment','15A':'Public School','15C':'Religious/Charitable','15D':'Other Exempt'};
+
+function setStatus(msg, type='loading') {
+  const el = $('status');
+  el.innerHTML = msg;
+  el.className = 'status ' + type;
+}
+
+function stepDone(n) { $('ps'+n).className = 'ps done'; }
+function stepActive(n) { $('ps'+n).className = 'ps active'; }
+function stepFail(n) { $('ps'+n).className = 'ps fail'; }
+
+// GEOCODING — try Google first, then Nominatim
+async function geocode(address) {
+  // Google Geocoding
+  try {
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${GKEY}&region=us&components=country:US|administrative_area:NJ`;
+    const r = await fetch(url);
+    const d = await r.json();
+    if (d.status === 'OK') {
+      const loc = d.results[0].geometry.location;
+      return { lat: loc.lat, lon: loc.lng, src: 'Google', formatted: d.results[0].formatted_address };
+    }
+    console.warn('Google geocode:', d.status, d.error_message);
+  } catch(e) { console.warn('Google geocode failed:', e); }
+
+  // Nominatim fallback
+  try {
+    const q = /NJ|New Jersey/i.test(address) ? address : address + ', New Jersey, USA';
+    const r = await fetch(
+      `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q)}&format=json&limit=1&countrycodes=us`,
+      { headers: { 'Accept-Language': 'en', 'User-Agent': 'NJLandIntelligence/1.0' } }
+    );
+    const d = await r.json();
+    if (d.length > 0) return { lat: +d[0].lat, lon: +d[0].lon, src: 'OpenStreetMap', formatted: d[0].display_name };
+  } catch(e) { console.warn('Nominatim failed:', e); }
+
+  throw new Error('Could not geocode address. Please include the zip code (e.g. Washington NJ 07882) and try again.');
+}
+
+// PARCEL LOOKUP — NJGIN statewide composite
+async function fetchParcel(lat, lon) {
+  const fields = 'PAMS_PIN,MUN_NAME,BLOCK,LOT,QUALIFIER,PROP_LOC,CALC_ACRE,PROP_CLASS,NET_VALUE,LAND_VAL,LAST_YR_TX,LAND_DESC,OWNER_NAME,CITY_STATE,COUNTY,ADD_LOTS1';
+  const url = `https://services2.arcgis.com/XVOqAjTOJ5P6ngMu/arcgis/rest/services/Parcels_MODIV/FeatureServer/0/query`
+    + `?geometry=${lon},${lat}&geometryType=esriGeometryPoint&inSR=4326`
+    + `&spatialRel=esriSpatialRelIntersects&outFields=${fields}&f=geojson&resultRecordCount=1`;
+  const r = await fetch(url);
+  const d = await r.json();
+  if (d.error) throw new Error('NJGIN parcel service: ' + (d.error.message || JSON.stringify(d.error)));
+  if (!d.features || d.features.length === 0) throw new Error('No parcel found at this location. Check the address and try again.');
+  return d.features[0];
+}
+
+// WETLANDS — NJDEP Land Use 2020 Layer 12
+async function fetchWetlands(lat, lon) {
+  const delta = 0.006;
+  const bbox = `${lon-delta},${lat-delta},${lon+delta},${lat+delta}`;
+  const url = `https://mapsdep.nj.gov/arcgis/rest/services/Features/Land_lu/MapServer/12/query`
+    + `?geometry=${bbox}&geometryType=esriGeometryEnvelope&inSR=4326`
+    + `&spatialRel=esriSpatialRelIntersects&outFields=LABEL20,ACRES,TYPE20&returnGeometry=false&f=json`;
+  const r = await fetch(url);
+  const d = await r.json();
+  if (d.error) return null;
+  return (d.features || []).map(f => f.attributes || {});
+}
+
+// FLOOD — FEMA NFHL Layer 28
+async function fetchFlood(lat, lon) {
+  const url = `https://hazards.fema.gov/gis/nfhl/rest/services/public/NFHL/MapServer/28/query`
+    + `?geometry=${lon},${lat}&geometryType=esriGeometryPoint&inSR=4326`
+    + `&spatialRel=esriSpatialRelIntersects&outFields=FLD_ZONE,ZONE_SUBTY,SFHA_TF,STATIC_BFE&f=json`;
+  const r = await fetch(url);
+  const d = await r.json();
+  if (d.error) return null;
+  return (d.features || []).map(f => f.attributes || {});
+}
+
+// HIGHLANDS — Highlands Council REST
+async function fetchHighlands(lat, lon) {
+  const url = `https://www.highlands.state.nj.us/arcgis/rest/services/Highlands/HighlandsRegion/MapServer/0/query`
+    + `?geometry=${lon},${lat}&geometryType=esriGeometryPoint&inSR=4326`
+    + `&spatialRel=esriSpatialRelIntersects&outFields=*&f=json`;
+  const r = await fetch(url);
+  const d = await r.json();
+  if (d.error) return null;
+  return (d.features || []).map(f => f.attributes || {});
+}
+
+// PINELANDS — NJ GeoWeb Pinelands Layer
+async function fetchPinelands(lat, lon) {
+  const url = `https://njgin.nj.gov/arcgis/rest/services/NJStatewide/Pinelands/MapServer/0/query`
+    + `?geometry=${lon},${lat}&geometryType=esriGeometryPoint&inSR=4326`
+    + `&spatialRel=esriSpatialRelIntersects&outFields=*&f=json`;
+  try {
+    const r = await fetch(url);
+    const d = await r.json();
+    if (d.error) return null;
+    return (d.features || []).map(f => f.attributes || {});
+  } catch(e) { return null; }
+}
+
+// SCORING ENGINE
+function computeScore(wetPct, floodZone, highlandsDesig, pinelandsData, propClass) {
+  let score = 100;
+  const flags = [];
+
+  // Wetlands
+  if (wetPct === null) {
+    score -= 5; flags.push({i:'⚪', t:'Wetlands service unavailable — verify manually at mapsdep.nj.gov'});
+  } else if (wetPct > 40) {
+    score -= 30; flags.push({i:'🔴', t:`Wetlands ~${wetPct.toFixed(0)}% of parcel — HARD STOP (exceeds 40% threshold)`});
+  } else if (wetPct > 20) {
+    score -= 15; flags.push({i:'🟠', t:`Wetlands ~${wetPct.toFixed(0)}% — major risk, verify exact parcel boundary`});
+  } else if (wetPct > 5) {
+    score -= 8; flags.push({i:'🟡', t:`Wetlands ~${wetPct.toFixed(0)}% — minor fringe, 150-ft NJDEP setback applies`});
+  } else {
+    flags.push({i:'✅', t:`Wetlands ~${wetPct.toFixed(0)}% — clear`});
+  }
+
+  // Flood
+  if (floodZone === null) {
+    score -= 5; flags.push({i:'⚪', t:'Flood service unavailable — verify at msc.fema.gov'});
+  } else if (floodZone === 'FLOODWAY') {
+    score -= 30; flags.push({i:'🔴', t:'Regulatory Floodway — HARD STOP, no fill or structures permitted'});
+  } else if (floodZone === 'AE' || floodZone === 'A') {
+    score -= 20; flags.push({i:'🔴', t:`Flood Zone ${floodZone} — 100-yr floodplain, flood insurance required, elevation certificate needed`});
+  } else if (floodZone === 'AO' || floodZone === 'AH') {
+    score -= 15; flags.push({i:'🟠', t:`Flood Zone ${floodZone} — shallow flooding risk`});
+  } else {
+    flags.push({i:'✅', t:`Flood Zone X — area of minimal flood hazard, no insurance required`});
+  }
+
+  // Highlands
+  if (highlandsDesig === null) {
+    score -= 5; flags.push({i:'⚪', t:'Highlands service unavailable — verify at nj-map.com/parcels/parcels'});
+  } else if (highlandsDesig.includes('Preservation')) {
+    score -= 25; flags.push({i:'🔴', t:'Highlands Preservation Area — commercial development prohibited, requires HPAA'});
+  } else if (highlandsDesig.includes('Planning')) {
+    score -= 5; flags.push({i:'🟡', t:'Highlands Planning Area — workable, HPAA compliance may be required'});
+  } else {
+    flags.push({i:'✅', t:'Outside Highlands Region — no Highlands restrictions'});
+  }
+
+  // Pinelands
+  if (pinelandsData === null) {
+    flags.push({i:'⚪', t:'Pinelands service unavailable — verify at pinelands.nj.gov'});
+  } else if (pinelandsData.length > 0) {
+    const raw = JSON.stringify(pinelandsData[0]);
+    if (/Forest|Preservation/i.test(raw)) {
+      score -= 25; flags.push({i:'🔴', t:'Pinelands Forest/Preservation Area — retail commercial prohibited'});
+    } else if (/Rural/i.test(raw)) {
+      score -= 8; flags.push({i:'🟡', t:'Pinelands Rural Area — limited development, check CMP standards'});
+    } else {
+      flags.push({i:'🟡', t:'In Pinelands region — verify specific management area designation'});
+    }
+  } else {
+    flags.push({i:'✅', t:'Outside Pinelands Region — no Pinelands restrictions'});
+  }
+
+  // Property class
+  if (propClass === '3B') {
+    score -= 3; flags.push({i:'🟠', t:'Class 3B farmland assessed — rollback tax liability on sale/conversion, calculate before offer'});
+  } else if (propClass === '4A') {
+    flags.push({i:'✅', t:'Class 4A — already commercially zoned'});
+  } else if (propClass === '1') {
+    flags.push({i:'✅', t:'Class 1 — vacant land, no rollback tax risk'});
+  }
+
+  return { score: Math.max(0, Math.min(100, Math.round(score))), flags };
+}
+
+// MAIN ANALYSIS FUNCTION
+async function analyze() {
+  const address = $('addr').value.trim();
+  if (!address) return;
+
+  $('btn').disabled = true;
+  $('emptyState').style.display = 'none';
+  $('results').style.display = 'block';
+  $('progress-bar').style.display = 'block';
+
+  // Reset
+  ['c-wet','c-fld','c-hld','c-pin','c-scr'].forEach(id => { $(id).textContent='…'; $(id).className='ss-val pending'; });
+  ['wet-v','fld-v','hld-v','pin-v','overall-v'].forEach(id => { const e=$(id); e.textContent='…'; e.className='verdict v-na'; });
+  ['ps0','ps1','ps2','ps3','ps4','ps5'].forEach(id => { $(id).className='ps'; });
+  $('scoreNum').textContent='…'; $('scoreFill').style.width='0%'; $('flagsDiv').innerHTML='';
+  $('parcelRows').innerHTML = DR('Status','Running…');
+  $('mapDiv').innerHTML = '📍 Loading satellite map…';
+
+  let lat, lon, geocodeSrc;
+
+  // Step 0: Geocode
+  stepActive(0);
+  setStatus('🔍 Geocoding address…');
+  try {
+    const g = await geocode(address);
+    lat = g.lat; lon = g.lon; geocodeSrc = g.src;
+    stepDone(0);
+    setStatus(`📍 Located via ${g.src}: ${g.formatted.substring(0,80)}…`);
+  } catch(e) {
+    stepFail(0);
+    setStatus('❌ ' + e.message, 'error');
+    $('btn').disabled = false;
+    return;
+  }
+
+  // Step 1: Parcel
+  stepActive(1);
+  setStatus('📋 Fetching parcel record from NJGIN statewide database…');
+  let parcelFeature, propAcres = 0, propClass = '';
+  try {
+    parcelFeature = await fetchParcel(lat, lon);
+    const p = parcelFeature.properties;
+    propAcres = +(p.CALC_ACRE || 0);
+    propClass = (p.PROP_CLASS || '').trim();
+    const taxes = +(p.LAST_YR_TX || 0);
+    const netVal = +(p.NET_VALUE || 0);
+    const landVal = +(p.LAND_VAL || 0);
+
+    $('parcelRows').innerHTML =
+      DR('PAMS PIN', p.PAMS_PIN || '—') +
+      DR('Block / Lot', `Block ${p.BLOCK || '—'}, Lot ${p.LOT || '—'}${p.QUALIFIER?' ('+p.QUALIFIER+')':''}`) +
+      DR('Municipality', p.MUN_NAME || '—') +
+      DR('County', p.COUNTY || '—') +
+      DR('Tax Assessor Address', p.PROP_LOC || '—') +
+      DR('Owner Name', p.OWNER_NAME || '—') +
+      DR('Owner Mailing City', p.CITY_STATE || '—') +
+      DR('Property Class', `${propClass} — ${PM[propClass] || propClass || '—'}`) +
+      DR('Gross Acreage (tax record)', `${propAcres.toFixed(2)} acres`) +
+      DR('Land Description', p.LAND_DESC || '—') +
+      DR('Additional Lots', p.ADD_LOTS1 || 'None') +
+      DR('Coordinates', `${lat.toFixed(5)}°N, ${Math.abs(lon).toFixed(5)}°W`) +
+      DR('Geocoder used', geocodeSrc, geocodeSrc === 'OpenStreetMap' ? 'warn' : 'ok');
+
+    $('finRows').innerHTML =
+      DR('Assessed Land Value', landVal > 0 ? `$${landVal.toLocaleString()}` : '—') +
+      DR('Total Assessed Net Value', netVal > 0 ? `$${netVal.toLocaleString()}` : '—') +
+      DR('Prior Year Taxes', taxes > 0 ? `$${taxes.toLocaleString()}/yr` : '—', taxes > 8000 ? 'warn' : '') +
+      DR('Price per Gross Acre', propAcres > 0 && netVal > 0 ? `$${Math.round(netVal/propAcres).toLocaleString()} (assessed basis)` : 'Use listing price') +
+      DR('Property Class', `${propClass} — ${PM[propClass] || '—'}`) +
+      DR('Rollback Tax Risk', propClass === '3B' ? 'YES — farmland assessed, calculate conversion tax before offer' : 'None identified', propClass === '3B' ? 'danger' : 'ok');
+
+    // Satellite map
+    $('mapDiv').innerHTML = `<iframe width="100%" height="220" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps/embed/v1/place?key=${GKEY}&q=${lat},${lon}&zoom=17&maptype=satellite"></iframe>`;
+
+    stepDone(1);
+  } catch(e) {
+    stepFail(1);
+    $('parcelRows').innerHTML = DR('Error', e.message, 'danger') + DR('Suggestion', 'Verify address is in NJ and includes zip code');
+    setStatus('❌ Parcel lookup failed: ' + e.message, 'error');
+    $('btn').disabled = false;
+    return;
+  }
+
+  // Step 2: Wetlands
+  stepActive(2);
+  setStatus('🌿 Checking NJDEP wetlands (2020 land use layer)…');
+  let wetPct = 0;
+  const wetData = await fetchWetlands(lat, lon);
+  if (wetData === null) {
+    $('wetRows').innerHTML = DR('Status','NJDEP service unavailable','warn') + DR('Manual check','mapsdep.nj.gov → Land Use 2020 → Wetlands layer');
+    wetPct = null;
+    $('wet-v').textContent = 'Unavailable'; $('wet-v').className = 'verdict v-na';
+    $('c-wet').textContent = 'N/A'; $('c-wet').className = 'ss-val pending';
+    stepFail(2);
+  } else if (wetData.length === 0) {
+    $('wetRows').innerHTML =
+      DR('Wetland polygons in area','0','ok') +
+      DR('Result','No wetlands detected in query area','ok') +
+      DR('Source','NJDEP 2020 Land Use/Land Cover — Layer 12') +
+      DR('Note','Bbox query ~650m radius · exact parcel intersection in Point 2');
+    wetPct = 0;
+    $('wet-v').textContent = 'Clear'; $('wet-v').className = 'verdict v-clear';
+    $('c-wet').textContent = '0% Clear'; $('c-wet').className = 'ss-val ok';
+    stepDone(2);
+  } else {
+    const totalWetAc = wetData.reduce((s,f) => s + (+(f.ACRES||0)), 0);
+    wetPct = propAcres > 0 ? Math.min(100, totalWetAc / propAcres * 100) : 0;
+    const types = [...new Set(wetData.map(f=>f.LABEL20).filter(Boolean))];
+    const cls = wetPct > 40 ? 'danger' : wetPct > 20 ? 'warn' : 'ok';
+    const vcls = wetPct > 40 ? 'v-stop' : wetPct > 20 ? 'v-risk' : 'v-clear';
+    $('wetRows').innerHTML =
+      DR('Polygons found in area', wetData.length.toString()) +
+      DR('Wetland types', types.slice(0,4).join(' · ') || '—') +
+      DR('Total wetland acres in bbox', `${totalWetAc.toFixed(2)} ac`) +
+      DR('Estimated parcel coverage', `~${wetPct.toFixed(1)}%`, cls) +
+      DR('Hard stop threshold','40% of gross acreage') +
+      DR('Threshold status', wetPct > 40 ? 'EXCEEDED — hard stop' : `Not exceeded (${(40-wetPct).toFixed(0)}% headroom)`, wetPct > 40 ? 'danger' : 'ok') +
+      DR('Note','Bounding box estimate · exact polygon intersection in Point 2');
+    $('wet-v').textContent = wetPct > 40 ? 'Hard Stop' : wetPct > 20 ? 'Review' : 'Clear';
+    $('wet-v').className = 'verdict ' + vcls;
+    $('c-wet').textContent = `~${wetPct.toFixed(0)}%`;
+    $('c-wet').className = 'ss-val ' + cls;
+    stepDone(2);
+  }
+
+  // Step 3: Flood
+  stepActive(3);
+  setStatus('🌊 Checking FEMA National Flood Hazard Layer…');
+  let floodZone = 'X';
+  const fldData = await fetchFlood(lat, lon);
+  if (fldData === null) {
+    $('fldRows').innerHTML = DR('Status','FEMA NFHL service unavailable','warn') + DR('Manual check','msc.fema.gov → enter address → view flood map');
+    floodZone = null;
+    $('fld-v').textContent = 'Unavailable'; $('fld-v').className = 'verdict v-na';
+    $('c-fld').textContent = 'N/A'; $('c-fld').className = 'ss-val pending';
+    stepFail(3);
+  } else if (fldData.length === 0) {
+    $('fldRows').innerHTML =
+      DR('Flood Zone','X — Area of Minimal Flood Hazard','ok') +
+      DR('Special Flood Hazard Area (SFHA)','No — flood insurance NOT required','ok') +
+      DR('Regulatory Floodway','No','ok') +
+      DR('Source','FEMA National Flood Hazard Layer (NFHL)');
+    $('fld-v').textContent = 'Clear'; $('fld-v').className = 'verdict v-clear';
+    $('c-fld').textContent = 'Zone X'; $('c-fld').className = 'ss-val ok';
+    stepDone(3);
+  } else {
+    const ff = fldData[0];
+    floodZone = ff.FLD_ZONE || 'X';
+    const sub = ff.ZONE_SUBTY || '';
+    const sfha = ff.SFHA_TF === 'T';
+    const isFloodway = /FLOODWAY/i.test(sub);
+    if (isFloodway) floodZone = 'FLOODWAY';
+    const cls = floodZone === 'X' ? 'ok' : floodZone === 'FLOODWAY' ? 'danger' : 'warn';
+    const vcls = floodZone === 'X' ? 'v-clear' : floodZone === 'FLOODWAY' ? 'v-stop' : 'v-risk';
+    $('fldRows').innerHTML =
+      DR('Flood Zone', floodZone, cls) +
+      DR('Zone Subtype', sub || '(none)') +
+      DR('Special Flood Hazard Area', sfha ? 'YES — flood insurance required' : 'No', sfha ? 'danger' : 'ok') +
+      DR('Regulatory Floodway', isFloodway ? 'YES — HARD STOP, no fill/structures' : 'No', isFloodway ? 'danger' : 'ok') +
+      DR('Static BFE', ff.STATIC_BFE > 0 ? `${ff.STATIC_BFE} ft NAVD88` : 'N/A') +
+      DR('Source','FEMA NFHL — Layer 28 (S_Fld_Haz_Ar)');
+    $('fld-v').textContent = floodZone === 'X' ? 'Clear' : floodZone === 'FLOODWAY' ? 'Hard Stop' : 'Risk';
+    $('fld-v').className = 'verdict ' + vcls;
+    $('c-fld').textContent = `Zone ${floodZone}`;
+    $('c-fld').className = 'ss-val ' + cls;
+    stepDone(3);
+  }
+
+  // Step 4: Highlands
+  stepActive(4);
+  setStatus('⛰️ Checking NJ Highlands designation…');
+  let highlandsDesig = '';
+  const hlData = await fetchHighlands(lat, lon);
+  if (hlData === null) {
+    $('hldRows').innerHTML = DR('Status','Highlands service unavailable','warn') + DR('Manual check','nj-map.com/parcels/parcels → search address → Highlands field');
+    highlandsDesig = null;
+    $('hld-v').textContent = 'Manual Check'; $('hld-v').className = 'verdict v-na';
+    $('c-hld').textContent = 'Manual'; $('c-hld').className = 'ss-val pending';
+  } else if (hlData.length === 0) {
+    highlandsDesig = 'Outside';
+    $('hldRows').innerHTML =
+      DR('Designation','Outside Highlands Region','ok') +
+      DR('Impact','No Highlands restrictions apply','ok') +
+      DR('Source','Highlands Council REST API — MapServer/0');
+    $('hld-v').textContent = 'Clear'; $('hld-v').className = 'verdict v-clear';
+    $('c-hld').textContent = 'Outside'; $('c-hld').className = 'ss-val ok';
+  } else {
+    const raw = JSON.stringify(hlData[0]);
+    highlandsDesig = /Preservation/i.test(raw) ? 'Preservation' : /Planning/i.test(raw) ? 'Planning' : 'In Region';
+    const cls = highlandsDesig === 'Preservation' ? 'danger' : highlandsDesig === 'Planning' ? 'warn' : 'ok';
+    const vcls = highlandsDesig === 'Preservation' ? 'v-stop' : highlandsDesig === 'Planning' ? 'v-risk' : 'v-clear';
+    $('hldRows').innerHTML =
+      DR('Designation', highlandsDesig, cls) +
+      DR('Impact', highlandsDesig === 'Preservation' ? 'HARD STOP — commercial development prohibited' : highlandsDesig === 'Planning' ? 'Workable — HPAA compliance required' : 'No Highlands restrictions', cls) +
+      DR('Raw attributes', raw.substring(0,120) + '…') +
+      DR('Source','Highlands Council REST API');
+    $('hld-v').textContent = highlandsDesig; $('hld-v').className = 'verdict ' + vcls;
+    $('c-hld').textContent = highlandsDesig; $('c-hld').className = 'ss-val ' + cls;
+  }
+  stepDone(4);
+
+  // Pinelands
+  const pinData = await fetchPinelands(lat, lon);
+  if (pinData === null || pinData.length === 0) {
+    $('pinRows').innerHTML = DR('Status', pinData === null ? 'Pinelands service unavailable' : 'Outside Pinelands Region', pinData === null ? 'warn' : 'ok');
+    $('pin-v').textContent = pinData === null ? 'Unavailable' : 'Clear';
+    $('pin-v').className = pinData === null ? 'verdict v-na' : 'verdict v-clear';
+    $('c-pin').textContent = pinData === null ? 'N/A' : 'Outside';
+    $('c-pin').className = pinData === null ? 'ss-val pending' : 'ss-val ok';
+  } else {
+    const raw = JSON.stringify(pinData[0]);
+    $('pinRows').innerHTML = DR('Status','In Pinelands Region','warn') + DR('Raw data',raw.substring(0,150));
+    $('pin-v').textContent = 'Review'; $('pin-v').className = 'verdict v-risk';
+    $('c-pin').textContent = 'In Region'; $('c-pin').className = 'ss-val warn';
+  }
+
+  // Step 5: Score
+  stepActive(5);
+  setStatus('📊 Computing composite score…');
+  const {score, flags} = computeScore(wetPct, floodZone, highlandsDesig, pinData, propClass);
+  $('scoreNum').textContent = score;
+  $('scoreFill').style.width = score + '%';
+  $('c-scr').textContent = score + '/100';
+  $('c-scr').className = `ss-val ${score >= 70 ? 'ok' : score >= 50 ? 'warn' : 'danger'}`;
+  const ov = $('overall-v');
+  ov.textContent = score >= 70 ? 'Pursue' : score >= 50 ? 'Conditional' : 'Pass';
+  ov.className = `verdict ${score >= 70 ? 'v-clear' : score >= 50 ? 'v-risk' : 'v-stop'}`;
+  $('flagsDiv').innerHTML = flags.map(f => FL(f.i, f.t)).join('');
+  stepDone(5);
+
+  setStatus(`✅ Analysis complete — ${geocodeSrc} · ${lat.toFixed(4)}°N ${Math.abs(lon).toFixed(4)}°W · Score: ${score}/100`, 'ok');
+  $('btn').disabled = false;
+}
+
+// Auto-run on load
+window.addEventListener('load', () => setTimeout(analyze, 500));
+</script>
+</body>
+</html>

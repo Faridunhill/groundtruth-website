@@ -1,0 +1,857 @@
+﻿GROUNDTRUTH PROPERTY AI — PRODUCT REGISTRY & UPGRADE LOG
+Classification: FARID OS Commander Intelligence — gt: tag
+Registry ID:    gt:registry-v1.0
+Created:        2026-06-24
+Author:         FARID CKA
+Status:         ACTIVE
+Next Review:    2026-07-24
+________________
+
+
+═══════════════════════════════════════════
+SECTION 01 — ASSET INVENTORY (TREASURY)
+═══════════════════════════════════════════
+ASSET                              VERSION    SIZE       STATUS     LOCATION
+
+
+──────────────────────────────────────────────────────────────────────────────────────
+
+
+groundtruth_landing_ULTIMATE_v2    v2.0       52,636 B   ACTIVE     Downloads\
+
+
+                                              963 lines
+
+
+Registered: 2026-06-24 Hash fingerprint: 52,636 bytes | 963 lines | Single-file HTML (CSS + JS embedded) Safe copy location: C:\Users\hadid\FaridOS\groundtruth\website\groundtruth_landing_ULTIMATE_v2.html Archive location:   C:\Users\hadid\FaridOS\groundtruth\website\archive\
+
+
+________________
+
+
+═══════════════════════════════════════════
+SECTION 02 — DESIGN SYSTEM (DO NOT CHANGE WITHOUT LOGGING)
+═══════════════════════════════════════════
+Color Palette
+--navy:    #0D1B2A   → page background (darkest)
+
+
+--navy2:   #0F2137   → card backgrounds
+
+
+--navy3:   #152942   → card hover states
+
+
+--navy4:   #1A3050   → deeper sections
+
+
+--teal:    #1B7A6E   → accent teal (darker)
+
+
+--teal2:   #22937F   → primary teal (eyebrows, badges, tags)
+
+
+--gold:    #C9A84C   → PRIMARY BRAND COLOR — headlines, prices, CTAs
+
+
+--gold2:   #E2BE6A   → gold hover states
+
+
+--gold3:   rgba(201,168,76,0.10) → gold tint backgrounds
+
+
+--dgray:   #8A96A3   → body text, secondary labels
+
+
+--mgray:   #4A5568   → muted text
+
+
+--border:  rgba(201,168,76,0.16) → default card borders
+
+
+--border2: rgba(201,168,76,0.32) → featured/hover borders
+
+
+--red:     #EF4444   → risk indicators
+
+
+--green:   #22C55E   → positive signals
+
+
+--amber:   #F59E0B   → warning signals
+
+
+--white:   #FFFFFF
+Typography Stack
+--display: 'Space Grotesk'   → headlines, nav, buttons, tier names
+
+
+--mono:    'Space Mono'      → data points, badges, eyebrows, labels
+
+
+--body:    'Inter'           → body copy, descriptions, FAQ answers
+Grid / Layout
+Max content width:    1300px (centered)
+
+
+Section padding:      108px 52px (top/bottom | left/right)
+
+
+Nav height:           68px (fixed)
+
+
+Hero grid:            1.05fr 0.95fr (text | calculator)
+
+
+Reports grid:         auto-fit, minmax(260px, 1fr)
+
+
+Pricing grid:         repeat(3, 1fr)
+
+
+Steps grid:           repeat(4, 1fr)
+
+
+________________
+
+
+═══════════════════════════════════════════
+SECTION 03 — COPY INTELLIGENCE
+═══════════════════════════════════════════
+Hero
+HEADLINE:     "Know everything / before you / sign anything."
+
+
+              (accent on "before you" in gold — .accent class)
+
+
+SUBHEADLINE:  "Out-of-state buyers make the biggest financial decision of their lives
+
+
+               with almost no local intelligence. We fix that — with reports built by
+
+
+               a civil engineer with 30 years of Tennessee regulatory experience."
+
+
+TAGLINE:      "Know everything before you sign anything."  (footer repeats)
+
+
+CTA BUTTONS:  Primary → "Order Your Report"
+
+
+              Ghost   → "View Sample Report"
+Credential Badges (hero bar)
+ACI GRADE 1  |  NICET LEVEL III  |  OSHA 30  |  30+ YEARS
+Trust Bar (scrolling ticker)
+ACI Grade 1 Certified  ·  NICET Level III  ·  OSHA 30  ·
+
+
+30+ Years Civil Engineering  ·  NJDOT Inspection Experience  ·
+
+
+Tennessee Regulatory Expert
+Hero Stats
+91,200  → TN in-migrants 2024
+
+
+28%     → Out-of-state buyers
+
+
+0%      → TN state income tax
+
+
+________________
+
+
+═══════════════════════════════════════════
+SECTION 04 — PRODUCT STRUCTURE (10 SECTIONS)
+═══════════════════════════════════════════
+SECTION 01  Flood & Environmental Risk
+
+
+            FEMA flood zone + panel number. NWI wetlands. EPA EJScreen.
+
+
+            Radon zone assessment.
+
+
+SECTION 02  Property Tax & True Cost
+
+
+            Exact annual tax vs home state. Income tax savings by bracket.
+
+
+            Full monthly cost model — mortgage, tax, insurance, HOA.
+
+
+SECTION 03  Schools & Family Quality of Life
+
+
+            GreatSchools ratings. District vs state avg. Walk Score,
+
+
+            crime index, healthcare, commute times.
+
+
+SECTION 04  Zoning, Land Use & Regulatory
+
+
+            Zoning classification. Setback compliance. HOA covenant review.
+
+
+            Pending rezoning within 500 ft.
+
+
+SECTION 05  Market Analysis & Comps
+
+
+            3–5 comparable sales. Price-per-sqft. Days on market.
+
+
+            Negotiation strategy.
+
+
+SECTION 06  True Cost of Ownership
+
+
+            All-in monthly cost. Side-by-side vs current state.
+
+
+            10-year retained wealth from the move.
+
+
+SECTION 07  Investment Potential
+
+
+            5- and 10-year appreciation history. Rental income potential.
+
+
+            Migration context.
+
+
+SECTIONS 08–10  Full Due Diligence Only
+
+
+            Structural risk flags & permit history
+
+
+            Utility & infrastructure (water, sewer, electric, internet)
+
+
+            Title flag scan, deed restrictions, adjacent parcel analysis
+
+
+________________
+
+
+═══════════════════════════════════════════
+SECTION 05 — PRICING TIERS
+═══════════════════════════════════════════
+TIER          PRICE    DELIVERY    SECTIONS INCLUDED
+
+
+──────────────────────────────────────────────────────────────
+
+
+Quick Scan    $99      2 hours     Sections 1, 2, 3 only
+
+
+Standard      $299     24 hours    All 7 Standard sections (1–7)  ← FEATURED
+
+
+Full Due      $499     48 hours    All 10 sections (1–10)
+
+
+Rush Add-on   +$150   Same day    Available on any tier
+
+
+Referral Program:
+
+
+* Realtor enters code → 20% off for buyer
+* Realtor earns 20% commission → paid by GroundTruth, not buyer
+
+
+________________
+
+
+═══════════════════════════════════════════
+SECTION 06 — INTERACTIVE FEATURES
+═══════════════════════════════════════════
+Tax Savings Calculator
+INPUTS:
+
+
+  From State (24 origin states supported):
+
+
+  NJ, NY, CA, IL, CT, MA, PA, MD, VA, OH, MI, MN, WI, CO,
+
+
+  WA, OR, GA, NC, FL, TX, AZ, NV, IN, MO
+
+
+  To State: Tennessee (TN) — currently only destination
+
+
+  Annual income (dropdown)
+
+
+  Destination home value (dropdown)
+
+
+OUTPUTS:
+
+
+  Income tax savings / year
+
+
+  Property tax savings / year
+
+
+  Total annual savings (animated counter)
+
+
+  10-year savings projection
+
+
+EMAIL CAPTURE:
+
+
+  After calculation → email field → "Send me the discount code"
+
+
+  → Teal button → confirms email + implicit lead capture
+JavaScript Functions Registered
+updateHomeValLabel()  → updates label when destination changes
+
+
+getRate()             → bracket-based income tax rate lookup
+
+
+fmt()                 → currency formatter
+
+
+animateNum()          → animated number counter (1.3s ease-out)
+
+
+calcSavings()         → master calculation function
+
+
+captureEmail()        → lead capture + confirmation
+
+
+toggleFaq()           → FAQ accordion (close-others-on-open pattern)
+
+
+IntersectionObserver  → fade-up scroll animation on sections
+
+
+________________
+
+
+═══════════════════════════════════════════
+SECTION 07 — FAQ INTELLIGENCE
+═══════════════════════════════════════════
+7 questions registered in v2.0:
+
+
+Q1  Is this the same as a home inspection?
+
+
+    → No. Complement to inspection. Different data layer entirely.
+
+
+Q2  How is this different from Zillow or Redfin?
+
+
+    → FEMA panel#, TDEC septic history, HOA covenant language, negotiation
+
+
+      strategy, 10-year cost model. Different category.
+
+
+Q3  Do I need a specific property to order?
+
+
+    → No. Area Research option — county or zip. Many buyers order this first.
+
+
+Q4  My realtor referred me. How does the discount work?
+
+
+    → 20% off for buyer. 20% commission for agent. Paid by GroundTruth.
+
+
+Q5  How accurate is the tax savings calculator?
+
+
+    → 2025 effective rates. Directional estimate. Consult CPA for final numbers.
+
+
+Q6  What if I'm looking at land, not a house?
+
+
+    → Dedicated Land Report: buildability, septic, soil, wetlands, flood,
+
+
+      zoning, utility access, solar potential.
+
+
+Q7  How long does delivery take?
+
+
+    → Quick Scan: 2 hrs. Standard: 24 hrs. Full DD: 48 hrs.
+
+
+      Rush (+$150) = same day on any tier.
+
+
+________________
+
+
+═══════════════════════════════════════════
+SECTION 08 — HOW IT WORKS (4 STEPS)
+═══════════════════════════════════════════
+STEP 1  Select your report
+
+
+        Choose Home, Land, or Both. Pick tier. Add rush if under contract.
+
+
+STEP 2  Pay securely
+
+
+        Stripe checkout. Referral codes apply 20% automatically.
+
+
+STEP 3  Submit property details
+
+
+        Address + situation questions. Three minutes. Personalizes report.
+
+
+STEP 4  Receive your report
+
+
+        Professional PDF to inbox. Before your next showing.
+
+
+________________
+
+
+═══════════════════════════════════════════
+SECTION 09 — FOOTER / LEGAL
+═══════════════════════════════════════════
+COMPANY:     Faridunhill LLC
+
+
+TAGLINE:     Know everything before you sign anything.
+
+
+CREDENTIALS: ACI Grade 1 · NICET Level III · OSHA 30
+
+
+             Civil Engineering Since 1996
+
+
+DISCLAIMER:
+
+
+  "This report is for informational purposes only and does not constitute
+
+
+  engineering, legal, or financial advice. GroundTruth Property AI
+
+
+  (Faridunhill LLC) is not a licensed engineering firm. Data sourced from
+
+
+  public records and third-party APIs. Always consult licensed professionals
+
+
+  before making real estate decisions. FEMA flood zone determinations are
+
+
+  approximate — obtain a formal survey for binding determinations.
+
+
+  Tax savings estimates use state average effective rates — not tax advice.
+
+
+  Consult a CPA."
+
+
+FOOTER LINKS:
+
+
+  Reports:    Home Buyer Report | Land Report | Rental Report | HR WorkMove
+
+
+  Resources:  Sample Report | Tax Calculator | Blog | Realtor Partners
+
+
+  Company:    About | FAQ | Privacy Policy | Terms of Service
+
+
+COPYRIGHT:   © 2026 Faridunhill LLC
+
+
+________________
+
+
+═══════════════════════════════════════════
+SECTION 10 — VERSION UPGRADE LOG
+═══════════════════════════════════════════
+VERSION   DATE        AUTHOR      CHANGES
+
+
+──────────────────────────────────────────────────────────────────────────
+
+
+v1.0      [unknown]   FARID CKA   Initial landing page — baseline version
+
+
+v2.0      2026-06-24  FARID CKA   ULTIMATE — full redesign registered here
+
+
+                                  Confirmed features in v2.0:
+
+
+                                  ✓ Navy/gold/teal design system locked
+
+
+                                  ✓ Space Grotesk + Space Mono + Inter stack
+
+
+                                  ✓ Tax Savings Calculator (24 origin states)
+
+
+                                  ✓ Email lead capture after calculator
+
+
+                                  ✓ 3 pricing tiers ($99 / $299 / $499)
+
+
+                                  ✓ 10-section report structure
+
+
+                                  ✓ 4-step How It Works
+
+
+                                  ✓ 7 FAQ accordion items
+
+
+                                  ✓ Referral program (20% off / 20% commission)
+
+
+                                  ✓ Fade-up scroll animations
+
+
+                                  ✓ Full footer with legal disclaimer
+
+
+                                  ✓ Mobile responsive (grid collapses)
+
+
+                                  ✓ Fixed nav with blur backdrop
+
+
+v2.1      [NEXT]      FARID CKA   Queue items — see Section 11
+
+
+________________
+
+
+═══════════════════════════════════════════
+SECTION 11 — KNOWN GAPS & UPGRADE QUEUE
+═══════════════════════════════════════════
+These are items NOT in v2.0 that CKA should address in v2.1+:
+
+
+GAP-01  PAYMENT INTEGRATION
+
+
+        Status: Placeholder CTAs — no live Stripe link
+
+
+        Fix:    Add Stripe payment links to tier buttons
+
+
+        Impact: CRITICAL — blocks first revenue
+
+
+        Owner:  FARID COA schedules
+
+
+GAP-02  MULTI-STATE DESTINATION
+
+
+        Status: Calculator only supports Tennessee (TN)
+
+
+        Fix:    Add NJ destination data (for NJ farmhouse buyers)
+
+
+        Impact: HIGH — expands total addressable market
+
+
+        Owner:  CKA adds DEST.NJ block to JS
+
+
+GAP-03  REPORT DELIVERY MECHANISM
+
+
+        Status: No delivery system wired
+
+
+        Fix:    Email PDF via Make.com or Stripe webhook
+
+
+        Impact: CRITICAL — needed before first order
+
+
+        Owner:  COA + Make.com session
+
+
+GAP-04  SAMPLE REPORT LINK
+
+
+        Status: "View Sample Report" button has href="#"
+
+
+        Fix:    Create and host sample PDF, link it
+
+
+        Impact: HIGH — conversion driver (buyers want proof)
+
+
+        Owner:  Farid generates first sample report
+
+
+GAP-05  REALTOR PARTNER PORTAL
+
+
+        Status: Footer link → href="#"
+
+
+        Fix:    Create simple referral code system or landing page
+
+
+        Impact: MEDIUM — referral program can't activate without this
+
+
+        Owner:  CKA + COA
+
+
+GAP-06  BLOG / RESOURCES
+
+
+        Status: Links in footer → href="#"
+
+
+        Fix:    At minimum, 3 articles about Tennessee buying risks
+
+
+        Impact: MEDIUM — SEO and trust-building
+
+
+        Owner:  FARID CKA (content strategy)
+
+
+GAP-07  HR WORKMOVE PRODUCT
+
+
+        Status: Listed in footer nav — no landing section on page
+
+
+        Fix:    Add HR WorkMove section OR build dedicated page
+
+
+        Impact: MEDIUM — B2B revenue stream not explained
+
+
+        Owner:  CKA writes product definition first
+
+
+GAP-08  AREA RESEARCH PRODUCT
+
+
+        Status: Mentioned in FAQ Q3 but not in pricing section
+
+
+        Fix:    Add to pricing as 4th option or separate product
+
+
+        Impact: MEDIUM — captures pre-decision buyers
+
+
+        Owner:  CKA + COA
+
+
+GAP-09  ANALYTICS / TRACKING
+
+
+        Status: No GA4, no Hotjar, no conversion tracking
+
+
+        Fix:    Add GA4 tag before first traffic
+
+
+        Impact: HIGH — you need conversion data from day 1
+
+
+        Owner:  COA
+
+
+GAP-10  E&O INSURANCE DISCLAIMER
+
+
+        Status: Footer says "not a licensed engineering firm"
+
+
+        Fix:    Once E&O finalizes, update footer + disclaimer language
+
+
+        Impact: LOW (already covered legally, but branding upgrade)
+
+
+        Owner:  Farid's son closing E&O → then Farid updates copy
+
+
+________________
+
+
+═══════════════════════════════════════════
+SECTION 12 — UPGRADE PROTOCOL (MANDATORY)
+═══════════════════════════════════════════
+RULE: Every change to the landing page follows this exact sequence.
+
+
+      No shortcuts. This is how v2.0 becomes v2.1, v2.2, etc.
+
+
+STEP 1 — LOG BEFORE TOUCHING:
+
+
+  Add row to Section 10 Version Log BEFORE any edit.
+
+
+  Record: version number | date | what you intend to change | why.
+
+
+STEP 2 — ARCHIVE CURRENT VERSION:
+
+
+  Copy current file to:
+
+
+  C:\Users\hadid\FaridOS\groundtruth\website\archive\
+
+
+  Name it: groundtruth_landing_v[CURRENT].html
+
+
+  Never overwrite. Never delete. LAW 10 applies.
+
+
+STEP 3 — MAKE THE CHANGE:
+
+
+  Edit the working copy.
+
+
+  Increment filename: groundtruth_landing_v[NEW].html
+
+
+STEP 4 — QC CHECK:
+
+
+  Open in browser. Verify:
+
+
+    ✓ Calculator still fires
+
+
+    ✓ FAQ accordion works
+
+
+    ✓ All CTAs have correct href
+
+
+    ✓ Mobile view at 375px width (Chrome DevTools)
+
+
+    ✓ No broken fonts (Google Fonts loaded)
+
+
+STEP 5 — UPDATE THIS REGISTRY:
+
+
+  Update Section 10 with what actually changed (may differ from plan).
+
+
+  Update Section 11 if any gaps closed or new gaps found.
+
+
+  Increment registry version at top of this file.
+
+
+STEP 6 — DEPLOY:
+
+
+  Upload to production (Netlify / GitHub Pages / domain host).
+
+
+  Note deployment timestamp in version log.
+
+
+________________
+
+
+═══════════════════════════════════════════
+SECTION 13 — CROSS-PROJECT DATA FLOWS
+═══════════════════════════════════════════
+FROM                    TO                       DATA                     WHEN
+
+
+────────────────────────────────────────────────────────────────────────────────
+
+
+GroundTruth landing     Farmhouse Project        NJ buyer persona          quarterly
+
+
+GroundTruth landing     Business Platform        SaaS pricing benchmark    monthly
+
+
+GroundTruth landing     FARIDUNHILL              Lead gen for pipe buyers  passive
+
+
+GroundTruth landing     Morning Brief            Conversion rate KPI       daily
+
+
+Tax Calculator          farid_os.db              Lead emails captured      on-capture
+
+
+________________
+
+
+═══════════════════════════════════════════
+SECTION 14 — COMMANDER NOTES (FARID EYES ONLY)
+═══════════════════════════════════════════
+CSA: GroundTruth landing page is production-quality. Design system is elite. The product itself is well-defined (10 sections, 3 tiers, clear pricing). The gap between v2.0 and first revenue is not design — it's infrastructure: Stripe links + report delivery + sample PDF. Those 3 items = first $299 customer. Priority: GAP-01 (Stripe) → GAP-03 (delivery) → GAP-04 (sample report) → launch.
+
+
+COA: File must be saved to: C:\Users\hadid\FaridOS\groundtruth\website\groundtruth_landing_ULTIMATE_v2.html Archive folder must exist before next edit. Task Scheduler does not yet have a job watching this file — add to Phase 2 ops. E&O insurance (son) → when confirmed, trigger GAP-10 update same day.
+
+
+CKA: v2.0 design system is now locked and registered. Any future product pages (Land Report dedicated page, HR WorkMove page, Realtor Portal) MUST use the identical color system, font stack, and spacing from Section 02 above. This registry is the single source of truth. No deviations without a log entry. Next CKA deliverable: GAP-02 (add NJ destination to calculator) and GAP-07 (write HR WorkMove product definition before building the section).
+
+
+________________
+
+
+
+
+GROUNDTRUTH PRODUCT REGISTRY v1.0 gt:registry-2026-06-24 FARID CKA | Authorized: Farid Hadid Next registry review: 2026-07-24
