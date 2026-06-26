@@ -360,6 +360,29 @@ button { cursor: pointer; font-family: var(--display); border: none; }
 @media (prefers-reduced-motion: reduce) {
   .fade-up { opacity: 1; transform: none; transition: none; }
 }
+
+/* PRODUCT TOGGLE */
+.product-toggle {
+  display: flex; gap: 8px; justify-content: center;
+  margin: 0 auto 40px; flex-wrap: wrap;
+}
+.ptab {
+  padding: 11px 32px; border-radius: 5px;
+  font-family: var(--display); font-size: 14px; font-weight: 600;
+  background: var(--navy2); color: var(--dgray);
+  border: 1px solid var(--border); cursor: pointer;
+  transition: all 0.2s;
+}
+.ptab.active { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+.ptab:hover:not(.active) { border-color: var(--gold); color: var(--white); }
+.rush-bar {
+  margin-top: 28px; padding: 16px 24px; border-radius: 6px;
+  background: rgba(201,168,76,0.06); border: 1px solid var(--border);
+  text-align: center; font-family: var(--mono); font-size: 12px; color: var(--dgray);
+  letter-spacing: 0.04em;
+}
+.rush-bar a { color: var(--gold); font-weight: 700; }
+.rush-bar a:hover { color: var(--gold2); }
 </style>
 </head>
 <body class="grid-bg">
@@ -643,40 +666,48 @@ button { cursor: pointer; font-family: var(--display); border: none; }
       <h2 class="section-h2 fade-up">Choose your level of intelligence.</h2>
       <p class="section-lead fade-up">Every tier includes Farid's engineering review. No generic AI output — a civil engineer is behind every report.</p>
     </div>
-    <div class="tiers-grid">
+
+    <!-- Product Selector -->
+    <div class="product-toggle fade-up">
+      <button class="ptab active" onclick="switchProduct('home')" id="tab-home">&#127968; Home Buyer Report</button>
+      <button class="ptab" onclick="switchProduct('land')" id="tab-land">&#127807; Land Report</button>
+    </div>
+
+    <!-- HOME BUYER PRICING -->
+    <div id="pricing-home" class="tiers-grid">
       <div class="tier-card fade-up">
         <div class="tier-name">Quick Scan</div>
-        <div class="tier-price">$99<span>/report</span></div>
-        <div class="tier-turn">⚡ Delivered in 2 hours</div>
+        <div class="tier-price">$79<span>/report</span></div>
+        <div class="tier-turn">&#9889; Delivered in 2 hours</div>
         <div class="tier-divider"></div>
-        <div class="tier-feature on">Flood &amp; environmental risk (Section 1)</div>
+        <div class="tier-feature on">Structural risk flags (Section 1)</div>
         <div class="tier-feature on">Property tax savings analysis (Section 2)</div>
         <div class="tier-feature on">Schools &amp; quality of life (Section 3)</div>
         <div class="tier-feature">Zoning &amp; regulatory</div>
         <div class="tier-feature">Market analysis &amp; comps</div>
         <div class="tier-feature">True cost of ownership</div>
         <div class="tier-feature">Investment potential</div>
-        <a href="https://buy.stripe.com/5kQ4gA6KL3H2gxg7TP3cc00" class="tier-btn">Order Quick Scan</a>
+        <a href="https://buy.stripe.com/aFa5kEeddcdy1Cm6PL3cc04" class="tier-btn" target="_blank">Order Quick Scan &#8594;</a>
       </div>
       <div class="tier-card featured fade-up">
         <div class="tier-badge">Most Popular</div>
         <div class="tier-name">Standard</div>
-        <div class="tier-price">$299<span>/report</span></div>
-        <div class="tier-turn">📋 Delivered in 24 hours</div>
+        <div class="tier-price">$199<span>/report</span></div>
+        <div class="tier-turn">&#128203; Delivered in 24 hours</div>
         <div class="tier-divider"></div>
-        <div class="tier-feature on">Flood &amp; environmental risk (Section 1)</div>
+        <div class="tier-feature on">Structural risk flags (Section 1)</div>
         <div class="tier-feature on">Property tax savings analysis (Section 2)</div>
         <div class="tier-feature on">Schools &amp; quality of life (Section 3)</div>
         <div class="tier-feature on">Zoning &amp; regulatory (Section 4)</div>
         <div class="tier-feature on">Market analysis &amp; comps (Section 5)</div>
         <div class="tier-feature on">True cost of ownership (Section 6)</div>
         <div class="tier-feature on">Investment potential (Section 7)</div>
-        <a href="https://buy.stripe.com/4gM6oI0mndhC2Gq1vr3cc01" class="tier-btn primary-btn">Order Standard Report</a>
+        <a href="https://buy.stripe.com/00w14o1qrfpK94O6PL3cc05" class="tier-btn primary-btn" target="_blank">Order Standard Report &#8594;</a>
       </div>
       <div class="tier-card fade-up">
         <div class="tier-name">Full Due Diligence</div>
-        <div class="tier-price">$499<span>/report</span></div>
-        <div class="tier-turn">🔍 Delivered in 48 hours</div>
+        <div class="tier-price">$349<span>/report</span></div>
+        <div class="tier-turn">&#128269; Delivered in 48 hours</div>
         <div class="tier-divider"></div>
         <div class="tier-feature on">All 7 Standard sections</div>
         <div class="tier-feature on">Structural risk flags &amp; permit history</div>
@@ -684,12 +715,63 @@ button { cursor: pointer; font-family: var(--display); border: none; }
         <div class="tier-feature on">Title flag scan &amp; deed restrictions</div>
         <div class="tier-feature on">Adjacent parcel analysis</div>
         <div class="tier-feature on">Rush delivery available (+$150)</div>
-        <a href="https://buy.stripe.com/7sY9AU6KLelG2Gq1vr3cc02" class="tier-btn">Order Full Due Diligence</a>
+        <a href="https://buy.stripe.com/bJe00k8STfpK94Oca53cc06" class="tier-btn" target="_blank">Order Full Due Diligence &#8594;</a>
       </div>
     </div>
-    <p style="font-family:var(--mono);font-size:11px;color:var(--dgray);margin-top:24px;text-align:center;letter-spacing:0.04em;">
-      Rush surcharge +$150 available on any tier for same-day delivery. Realtor referral codes apply 20% discount automatically.
-    </p>
+
+    <!-- LAND REPORT PRICING -->
+    <div id="pricing-land" class="tiers-grid" style="display:none;">
+      <div class="tier-card fade-up">
+        <div class="tier-name">Quick Scan</div>
+        <div class="tier-price">$99<span>/report</span></div>
+        <div class="tier-turn">&#9889; Delivered in 2 hours</div>
+        <div class="tier-divider"></div>
+        <div class="tier-feature on">Flood &amp; environmental risk (Section 1)</div>
+        <div class="tier-feature on">Zoning overview &amp; buildability flags (Section 2)</div>
+        <div class="tier-feature on">Schools &amp; quality of life (Section 3)</div>
+        <div class="tier-feature">Wetlands &amp; septic feasibility</div>
+        <div class="tier-feature">Soil analysis &amp; solar potential</div>
+        <div class="tier-feature">ROI &amp; financial analysis</div>
+        <div class="tier-feature">Full regulatory deep-dive</div>
+        <a href="https://buy.stripe.com/5kQ6oI0mnb9uep8gql3cc07" class="tier-btn" target="_blank">Order Quick Scan &#8594;</a>
+      </div>
+      <div class="tier-card featured fade-up">
+        <div class="tier-badge">Most Popular</div>
+        <div class="tier-name">Standard</div>
+        <div class="tier-price">$299<span>/report</span></div>
+        <div class="tier-turn">&#128203; Delivered in 24 hours</div>
+        <div class="tier-divider"></div>
+        <div class="tier-feature on">Flood &amp; environmental risk (Section 1)</div>
+        <div class="tier-feature on">Zoning &amp; buildability (Section 2)</div>
+        <div class="tier-feature on">Schools &amp; quality of life (Section 3)</div>
+        <div class="tier-feature on">Wetlands &amp; septic feasibility (Section 4)</div>
+        <div class="tier-feature on">Soil analysis &amp; solar potential (Section 5)</div>
+        <div class="tier-feature on">ROI &amp; financial analysis (Section 6)</div>
+        <div class="tier-feature on">Market &amp; comparable sales (Section 7)</div>
+        <a href="https://buy.stripe.com/aFafZi9WXfpKgxg0rn3cc08" class="tier-btn primary-btn" target="_blank">Order Standard Report &#8594;</a>
+      </div>
+      <div class="tier-card fade-up">
+        <div class="tier-name">Full Due Diligence</div>
+        <div class="tier-price">$499<span>/report</span></div>
+        <div class="tier-turn">&#128269; Delivered in 48 hours</div>
+        <div class="tier-divider"></div>
+        <div class="tier-feature on">All 7 Standard sections</div>
+        <div class="tier-feature on">Septic permit history &amp; TDEC records</div>
+        <div class="tier-feature on">Well &amp; water source analysis</div>
+        <div class="tier-feature on">Easement &amp; deed restriction scan</div>
+        <div class="tier-feature on">Full buildability certification</div>
+        <div class="tier-feature on">Rush delivery available (+$150)</div>
+        <a href="https://buy.stripe.com/8x2dRab117Xi5SC6PL3cc09" class="tier-btn" target="_blank">Order Full Due Diligence &#8594;</a>
+      </div>
+    </div>
+
+    <!-- Rush Add-on Bar -->
+    <div class="rush-bar fade-up">
+      Need it faster? &nbsp;
+      <a href="https://buy.stripe.com/8x2fZi7OP91m3Kueid3cc0a" target="_blank">+ Add Rush Delivery ($150) &#8594;</a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      Same-day delivery on any tier &nbsp;&nbsp;|&nbsp;&nbsp; Realtor referral codes apply 20% discount automatically
+    </div>
   </div>
 </section>
 
@@ -958,6 +1040,13 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.08 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+function switchProduct(type) {
+  document.getElementById('pricing-home').style.display = type === 'home' ? 'grid' : 'none';
+  document.getElementById('pricing-land').style.display = type === 'land' ? 'grid' : 'none';
+  document.getElementById('tab-home').classList.toggle('active', type === 'home');
+  document.getElementById('tab-land').classList.toggle('active', type === 'land');
+}
 </script>
 </body>
 </html>
