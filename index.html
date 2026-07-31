@@ -3,11 +3,46 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>GroundTruth Property AI — Know What You Can Do With the Land Before You Sign</title>
-<meta name="description" content="Independent New Jersey property due-diligence reports. Flood, wetlands, Highlands, Pinelands, zoning and soils — find out what a parcel will and won't let you do, before you close. Reports opening soon." />
+<title>GroundTruth Property AI — 100 Free Property Reports · New Jersey &amp; Tennessee</title>
+<meta name="description" content="Free during beta: independent New Jersey and Tennessee property due-diligence reports. Flood, wetlands, soils, septic feasibility and zoning — find out what a parcel will and won't let you do, before you close. First 100 reports free." />
+<link rel="canonical" href="https://groundtruthpropertyai.com/" />
+
+<!-- Open Graph — controls how the link looks when shared or run as an ad -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://groundtruthpropertyai.com/" />
+<meta property="og:title" content="100 Free Property Reports — New Jersey &amp; Tennessee" />
+<meta property="og:description" content="Know what the land will actually let you do, before you sign. Flood, wetlands, soils, septic feasibility and zoning in one clear report. Free during beta." />
+<meta name="twitter:card" content="summary_large_image" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<!-- ============================================================
+     ANALYTICS SLOTS — paste your IDs, then uncomment each block.
+     Do this BEFORE spending a dollar on ads (Registry GAP-09).
+     ============================================================ -->
+
+<!-- GA4 — replace G-XXXXXXXXXX with your Measurement ID
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+  gtag('js',new Date());gtag('config','G-XXXXXXXXXX');
+</script>
+-->
+
+<!-- Meta Pixel — replace YOUR_PIXEL_ID.
+     REMINDER: real-estate ads must be declared Special Ad Category: Housing.
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','YOUR_PIXEL_ID');fbq('track','PageView');
+</script>
+-->
+
 <style>
   :root{
     --navy:#0D1B2A; --navy2:#0F2137; --navy3:#152942; --navy4:#1A3050;
@@ -35,25 +70,38 @@
 
   /* header */
   header{position:sticky;top:0;z-index:30;backdrop-filter:blur(10px);background:rgba(13,27,42,0.74);border-bottom:1px solid var(--border)}
-  .bar{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px}
   .brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:700}
   .mark{width:26px;height:26px;border:1.5px solid var(--gold);border-radius:5px;position:relative;flex:none}
   .mark::before{content:"";position:absolute;inset:5px;border-left:1.5px solid var(--teal2);border-bottom:1.5px solid var(--teal2)}
   .mark::after{content:"";position:absolute;right:5px;top:5px;width:5px;height:5px;background:var(--gold2);border-radius:50%}
   .brand b{color:var(--white)} .brand span.g{color:var(--gold2)}
   .navx{font-family:var(--mono);font-size:12px;color:var(--dgray)}
-  .pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.5px;color:var(--gold2);border:1px solid var(--border2);border-radius:999px;padding:6px 13px}
-  .dot{width:7px;height:7px;border-radius:50%;background:var(--gold2);animation:pulse 2.4s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(226,190,106,.55)}70%{box-shadow:0 0 0 9px rgba(226,190,106,0)}100%{box-shadow:0 0 0 0 rgba(226,190,106,0)}}
+  .pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.5px;color:var(--gold2);border:1px solid var(--border2);border-radius:999px;padding:6px 13px;white-space:nowrap}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2.4s infinite;flex:none}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.55)}70%{box-shadow:0 0 0 9px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
 
   /* hero */
-  .hero{padding-top:86px}
+  .hero{padding-top:74px;padding-bottom:20px}
   .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:var(--teal2);margin-bottom:20px}
-  h1{font-family:var(--display);font-weight:700;font-size:clamp(2.3rem,5.6vw,4.1rem);line-height:1.05;letter-spacing:-1.2px;max-width:17ch}
+  h1{font-family:var(--display);font-weight:700;font-size:clamp(2.2rem,5.4vw,3.9rem);line-height:1.05;letter-spacing:-1.2px;max-width:18ch}
   h1 em{font-style:normal;color:var(--gold2)}
-  .lead{margin-top:24px;font-size:clamp(1.05rem,2.1vw,1.25rem);color:var(--mgray);max-width:60ch}
+  .lead{margin-top:24px;font-size:clamp(1.05rem,2.1vw,1.22rem);color:var(--mgray);max-width:60ch}
   .lead strong{color:var(--white);font-weight:600}
-  .readout{margin-top:34px;border:1px solid var(--border);border-radius:12px;background:linear-gradient(180deg,var(--navy3),var(--navy2));padding:18px 20px;font-family:var(--mono);font-size:12.5px;color:var(--dgray);max-width:820px;display:flex;flex-wrap:wrap;gap:10px 24px}
+
+  /* counter */
+  .counter{margin-top:30px;display:inline-flex;align-items:center;gap:16px;flex-wrap:wrap;border:1px solid var(--border2);border-radius:12px;background:linear-gradient(180deg,var(--navy3),var(--navy2));padding:16px 22px}
+  .counter .big{font-family:var(--display);font-weight:700;font-size:2rem;color:var(--gold2);line-height:1}
+  .counter .lbl{font-family:var(--mono);font-size:11.5px;letter-spacing:1px;text-transform:uppercase;color:var(--dgray)}
+  .track{width:100%;max-width:260px;height:5px;background:rgba(255,255,255,.09);border-radius:99px;overflow:hidden;margin-top:7px}
+  .track i{display:block;height:100%;background:linear-gradient(90deg,var(--teal2),var(--gold2));border-radius:99px}
+
+  .cta-row{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-block;font-family:var(--display);font-weight:600;font-size:1rem;padding:15px 28px;border-radius:10px;cursor:pointer;border:none}
+  .btn-gold{color:var(--navy);background:linear-gradient(180deg,var(--gold2),var(--gold))}
+  .btn-ghost{color:var(--gold2);border:1px solid var(--border2);background:transparent}
+
+  .readout{margin-top:32px;border:1px solid var(--border);border-radius:12px;background:linear-gradient(180deg,var(--navy3),var(--navy2));padding:18px 20px;font-family:var(--mono);font-size:12.5px;color:var(--dgray);max-width:860px;display:flex;flex-wrap:wrap;gap:10px 24px}
   .readout .k{color:var(--gold2)} .readout .live{color:var(--green)} .readout .sep{color:var(--border2)}
 
   /* trust bar */
@@ -66,37 +114,57 @@
   h2{font-family:var(--display);font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);letter-spacing:-.6px}
   .sub{color:var(--mgray);margin-top:12px;max-width:62ch}
 
-  /* fear / value cards */
+  /* fear cards */
   .fear-grid{margin-top:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:14px;overflow:hidden}
   .fcell{background:var(--navy2);padding:24px}
   .fcell h4{font-family:var(--display);font-weight:600;font-size:1.08rem;margin-bottom:8px;color:var(--gold2)}
   .fcell p{font-size:.93rem;color:var(--dgray);line-height:1.55}
 
-  /* what we check panel */
-  .panelbox{margin-top:34px;border:1px solid var(--border2);border-radius:16px;background:linear-gradient(165deg,rgba(27,122,110,0.10),rgba(13,27,42,0.25));padding:30px}
-  .check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px 26px;margin-top:18px}
+  /* what we check */
+  .panelbox{margin-top:30px;border:1px solid var(--border2);border-radius:16px;background:linear-gradient(165deg,rgba(27,122,110,0.10),rgba(13,27,42,0.25));padding:30px}
+  .check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px 26px;margin-top:6px}
   .chk{display:flex;gap:11px;align-items:flex-start}
-  .chk .b{color:var(--teal2);font-family:var(--mono);font-size:13px;margin-top:2px}
+  .chk .b{color:var(--teal2);font-family:var(--mono);font-size:13px;margin-top:2px;flex:none}
   .chk b{font-family:var(--display);font-weight:600;font-size:.98rem;color:var(--white)}
   .chk span{display:block;font-size:.86rem;color:var(--dgray)}
 
-  /* offer */
-  .offer{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:stretch}
-  .offer-card{border:1px solid var(--border2);border-radius:16px;background:linear-gradient(180deg,var(--navy3),var(--navy2));padding:32px;position:relative}
-  .badge{position:absolute;top:-12px;left:32px;background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--navy);font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.5px;padding:5px 14px;border-radius:999px}
-  .tier-name{font-family:var(--display);font-weight:700;font-size:1.5rem;margin-top:6px}
-  .tier-price{font-family:var(--display);font-weight:700;font-size:3rem;letter-spacing:-1.5px;margin:10px 0 2px}
-  .tier-price span{font-family:var(--mono);font-size:.95rem;color:var(--dgray);font-weight:400}
-  .tier-turn{font-family:var(--mono);font-size:12.5px;color:var(--teal2);margin-bottom:18px}
-  .feat{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-top:1px solid var(--border);font-size:.95rem;color:var(--mgray)}
-  .feat .c{color:var(--gold2);margin-top:2px}
-  .order-btn{display:block;text-align:center;margin-top:22px;font-family:var(--display);font-weight:600;padding:15px;border-radius:10px;border:1px dashed var(--border2);color:var(--gold2);background:rgba(201,168,76,0.05);cursor:default}
-  .order-note{font-family:var(--mono);font-size:11px;color:var(--dgray);text-align:center;margin-top:10px}
-  .soon-card{border:1px solid var(--border);border-radius:16px;background:var(--navy2);padding:28px}
-  .soon-card h4{font-family:var(--display);font-weight:600;margin-bottom:14px}
-  .soon-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-top:1px solid var(--border);font-size:.95rem}
-  .soon-item .s{font-family:var(--mono);font-size:11px;color:var(--dgray);border:1px solid var(--border);border-radius:999px;padding:3px 10px}
-  .notify{display:inline-block;margin-top:18px;font-family:var(--display);font-weight:600;font-size:.92rem;color:var(--navy);background:linear-gradient(180deg,var(--gold2),var(--gold));padding:11px 20px;border-radius:9px}
+  /* state tabs */
+  .tabs{display:inline-flex;gap:6px;border:1px solid var(--border);border-radius:11px;padding:5px;background:var(--navy2);margin-top:22px}
+  .tab{font-family:var(--mono);font-size:12.5px;letter-spacing:.5px;color:var(--dgray);padding:9px 20px;border-radius:8px;cursor:pointer;border:none;background:transparent;transition:.18s}
+  .tab[aria-selected="true"]{background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--navy);font-weight:700}
+
+  /* FORM */
+  .formwrap{margin-top:34px;display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:start}
+  .fcard{border:1px solid var(--border2);border-radius:16px;background:linear-gradient(180deg,var(--navy3),var(--navy2));padding:30px;position:relative}
+  .badge{position:absolute;top:-12px;left:30px;background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--navy);font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.5px;padding:5px 14px;border-radius:999px}
+  .fld{margin-top:16px}
+  .fld label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gold2);margin-bottom:7px}
+  .fld input,.fld select,.fld textarea{
+    width:100%;font-family:var(--body);font-size:16px;color:var(--white);
+    background:rgba(13,27,42,.66);border:1px solid var(--border);border-radius:9px;padding:13px 14px;outline:none;transition:.18s
+  }
+  .fld textarea{min-height:92px;resize:vertical}
+  .fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--gold2);background:rgba(13,27,42,.9)}
+  .fld input::placeholder,.fld textarea::placeholder{color:#5d6a78}
+  .fld select option{background:var(--navy2);color:var(--white)}
+  .req{color:var(--amber)}
+  .submit{width:100%;margin-top:22px;font-family:var(--display);font-weight:700;font-size:1.05rem;padding:16px;border-radius:10px;border:none;cursor:pointer;color:var(--navy);background:linear-gradient(180deg,var(--gold2),var(--gold));transition:.18s}
+  .submit:hover{filter:brightness(1.07)}
+  .submit:disabled{background:var(--navy4);color:var(--dgray);cursor:not-allowed}
+  .fineprint{font-family:var(--mono);font-size:11px;color:var(--dgray);text-align:center;margin-top:12px;line-height:1.7}
+
+  .sidecard{border:1px solid var(--border);border-radius:16px;background:var(--navy2);padding:28px}
+  .sidecard h4{font-family:var(--display);font-weight:600;margin-bottom:6px;font-size:1.1rem}
+  .sitem{display:flex;gap:11px;align-items:flex-start;padding:13px 0;border-top:1px solid var(--border);font-size:.93rem;color:var(--mgray)}
+  .sitem:first-of-type{border-top:none}
+  .sitem .c{color:var(--teal2);font-family:var(--mono);font-size:12px;margin-top:3px;flex:none}
+  .notecard{margin-top:18px;border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:9px;background:rgba(245,158,11,.05);padding:15px 17px;font-size:.88rem;color:var(--mgray)}
+
+  .thanks{display:none;text-align:center;padding:38px 20px}
+  .thanks.on{display:block}
+  .thanks .tick{font-size:2.6rem;color:var(--green);line-height:1}
+  .thanks h3{font-family:var(--display);font-weight:700;font-size:1.6rem;margin:14px 0 10px}
+  .thanks p{color:var(--mgray);max-width:44ch;margin:0 auto}
 
   /* steps */
   .steps{margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
@@ -106,7 +174,7 @@
   .step p{color:var(--dgray);font-size:.92rem}
 
   /* faq */
-  .faq{margin-top:26px;max-width:780px}
+  .faq{margin-top:26px;max-width:800px}
   details{border-top:1px solid var(--border);padding:16px 0}
   summary{font-family:var(--display);font-weight:600;font-size:1.05rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
   summary::-webkit-details-marker{display:none}
@@ -119,20 +187,26 @@
   .foot{display:flex;flex-wrap:wrap;gap:18px 40px;justify-content:space-between}
   .foot .co{font-family:var(--display);font-weight:600}
   .foot a{color:var(--gold2)}
-  .legal{font-size:.84rem;color:var(--dgray);max-width:58ch;line-height:1.6;margin-top:18px}
+  .legal{font-size:.84rem;color:var(--dgray);max-width:58ch;line-height:1.6}
+  .legal + .legal{margin-top:14px}
 
-  .fade{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
-  .fade.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion:reduce){.fade{opacity:1;transform:none;transition:none}.dot{animation:none}}
-  @media(max-width:760px){.offer{grid-template-columns:1fr}.navx{display:none}}
+  /* Content is visible by default. Only hide-then-reveal when JS is confirmed
+     alive (html.js), so a blocked or slow script never leaves a paid visitor
+     staring at an empty page in an in-app browser. */
+  .js .fade{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+  .js .fade.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.js .fade{opacity:1;transform:none;transition:none}.dot{animation:none}}
+  @media(max-width:820px){.formwrap{grid-template-columns:1fr}}
+  @media(max-width:760px){.navx{display:none}.hero{padding-top:52px}}
 </style>
 </head>
 <body>
+<script>document.documentElement.className+=' js'</script>
 
 <header>
   <div class="wrap bar">
-    <div class="brand"><span class="mark"></span><span class="g">Ground</span><b>Truth</b><span class="navx" style="margin-left:6px">Property AI &middot; New Jersey</span></div>
-    <span class="pill"><span class="dot"></span>REPORTS OPENING SOON</span>
+    <div class="brand"><span class="mark"></span><span class="g">Ground</span><b>Truth</b><span class="navx" style="margin-left:6px">Property AI &middot; NJ &amp; TN</span></div>
+    <span class="pill"><span class="dot"></span>FREE BETA &middot; <b id="pillLeft">100</b>&nbsp;LEFT</span>
   </div>
 </header>
 
@@ -140,15 +214,29 @@
   <!-- HERO -->
   <section class="hero">
     <div class="wrap">
-      <div class="eyebrow fade">Independent New Jersey Property Due Diligence</div>
+      <div class="eyebrow fade">Independent Property Due Diligence &middot; New Jersey &amp; Tennessee</div>
       <h1 class="fade">Before you sign, know what the land will <em>actually let you do</em>.</h1>
-      <p class="lead fade">In New Jersey, the listing never tells you the part that matters most: wetlands, Highlands, Pinelands, flood zones, soils and zoning decide whether you can build, farm, subdivide &mdash; or even get a permit. <strong>GroundTruth turns the public record into one clear report, so you find out before closing, not after.</strong></p>
+      <p class="lead fade">The listing never tells you the part that matters most: wetlands, flood zones, soils, septic feasibility and zoning decide whether you can build, farm, subdivide &mdash; or even get a permit. <strong>GroundTruth turns the public record into one clear report, so you find out before closing, not after.</strong></p>
+
+      <div class="counter fade">
+        <div>
+          <div class="big"><span id="cLeft">100</span> <span style="font-size:1rem;color:var(--dgray);font-weight:400">of 100</span></div>
+          <div class="lbl">Free reports remaining</div>
+          <div class="track"><i id="cBar" style="width:100%"></i></div>
+        </div>
+      </div>
+
+      <div class="cta-row fade">
+        <a class="btn btn-gold" href="#request">Claim a free report &rarr;</a>
+        <a class="btn btn-ghost" href="#report">See what's inside</a>
+      </div>
+
       <div class="readout fade">
-        <span><span class="k">STATE</span> New Jersey</span><span class="sep">/</span>
-        <span><span class="k">COUNTIES</span> 21</span><span class="sep">/</span>
+        <span><span class="k">STATES</span> New Jersey &middot; Tennessee</span><span class="sep">/</span>
+        <span><span class="k">COUNTIES</span> 21 NJ &middot; 95 TN</span><span class="sep">/</span>
         <span><span class="k">FLOOD</span> <span class="live">FEMA NFHL &middot; live</span></span><span class="sep">/</span>
-        <span><span class="k">OVERLAYS</span> Wetlands &middot; Highlands &middot; Pinelands</span><span class="sep">/</span>
-        <span><span class="k">SOILS</span> USDA SSURGO</span>
+        <span><span class="k">SOILS</span> USDA SSURGO</span><span class="sep">/</span>
+        <span><span class="k">COST</span> <span class="live">$0 during beta</span></span>
       </div>
     </div>
     <div class="trust fade">
@@ -162,17 +250,17 @@
     </div>
   </section>
 
-  <!-- THE NJ FEAR -->
+  <!-- THE FEAR -->
   <section>
     <div class="wrap">
-      <div class="eyebrow2 fade">Why this matters in New Jersey</div>
+      <div class="eyebrow2 fade">Why this matters</div>
       <h2 class="fade">The most expensive surprises come after you own it.</h2>
-      <p class="sub fade">New Jersey has some of the most layered land regulation in the country. The questions that decide a parcel's real value aren't on Zillow &mdash; and your realtor and inspector don't answer them.</p>
+      <p class="sub fade">New Jersey and Tennessee both carry land rules that decide a parcel's real value &mdash; and they aren't on Zillow. Your realtor and your home inspector don't answer these questions.</p>
       <div class="fear-grid">
-        <div class="fcell fade"><h4>"Can I even build?"</h4><p>Wetlands buffers, Highlands and Pinelands restrictions, and steep-slope rules can quietly make a lot unbuildable &mdash; or cut its usable area in half.</p></div>
+        <div class="fcell fade"><h4>"Can I even build?"</h4><p>Wetlands buffers, overlay districts and steep-slope rules can quietly make a lot unbuildable &mdash; or cut its usable area in half.</p></div>
         <div class="fcell fade"><h4>"Will it flood?"</h4><p>FEMA flood zone and elevation change insurance cost, financing, and what you're allowed to put on the site.</p></div>
         <div class="fcell fade"><h4>"Will the soil pass?"</h4><p>Septic feasibility and soil class decide whether a rural parcel can support a home at all without public sewer.</p></div>
-        <div class="fcell fade"><h4>"What's it really cost?"</h4><p>NJ's property taxes are among the highest in the nation. The true carrying cost is often nothing like the listing implies.</p></div>
+        <div class="fcell fade"><h4>"What's it really cost?"</h4><p>A perc test runs $450&ndash;$2,300 and a wetland delineation can pass $5,000. Know which parcels deserve that money first.</p></div>
       </div>
     </div>
   </section>
@@ -180,49 +268,94 @@
   <!-- WHAT WE CHECK -->
   <section id="report">
     <div class="wrap">
-      <div class="eyebrow2 fade">Inside the NJ Quick Scan</div>
+      <div class="eyebrow2 fade">Inside the report</div>
       <h2 class="fade">Every report answers the questions the listing won't.</h2>
       <p class="sub fade">Each finding cites its public source and a confidence level. Nothing is invented &mdash; where the record is thin, the report says so plainly.</p>
+
+      <div class="tabs fade" role="tablist">
+        <button class="tab" role="tab" aria-selected="true" data-state="NJ">New Jersey</button>
+        <button class="tab" role="tab" aria-selected="false" data-state="TN">Tennessee</button>
+      </div>
+
       <div class="panelbox fade">
         <div class="check-grid">
-          <div class="chk"><span class="b">01</span><div><b>Parcel, zoning &amp; buildability</b><span>NJ MOD-IV parcel record, zoning class, and what it permits.</span></div></div>
-          <div class="chk"><span class="b">02</span><div><b>Flood risk</b><span>FEMA flood zone with panel, from the live NFHL service.</span></div></div>
-          <div class="chk"><span class="b">03</span><div><b>Regulatory overlays</b><span>NJ DEP freshwater wetlands, Highlands area, Pinelands CMP.</span></div></div>
-          <div class="chk"><span class="b">04</span><div><b>Soils &amp; septic feasibility</b><span>USDA SSURGO soil class and septic suitability signal.</span></div></div>
+          <div class="chk"><span class="b">01</span><div><b>Parcel, zoning &amp; buildability</b><span id="s1">NJ MOD-IV parcel record, zoning class, and what it permits.</span></div></div>
+          <div class="chk"><span class="b">02</span><div><b>Flood risk</b><span>FEMA flood zone with panel number, from the live NFHL service.</span></div></div>
+          <div class="chk"><span class="b">03</span><div><b>Regulatory overlays</b><span id="s3">NJ DEP freshwater wetlands, Highlands area, Pinelands CMP.</span></div></div>
+          <div class="chk"><span class="b">04</span><div><b>Soils &amp; septic feasibility</b><span id="s4">USDA SSURGO soil class and septic suitability signal.</span></div></div>
           <div class="chk"><span class="b">05</span><div><b>Suitability verdict + score</b><span>An owned model verdict on how the parcel fits your purpose &mdash; a verdict, not advice.</span></div></div>
-          <div class="chk"><span class="b">+</span><div><b>Deeper reports coming soon</b><span>Market comps, full tax model, and full due diligence as we expand.</span></div></div>
+          <div class="chk"><span class="b">+</span><div><b>Deeper reports later</b><span>Market comps, full tax model and full due diligence as we expand.</span></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- OFFER -->
-  <section id="pricing">
+  <!-- REQUEST FORM -->
+  <section id="request">
     <div class="wrap">
-      <div class="eyebrow2 fade">Pricing</div>
-      <h2 class="fade">One honest report to start.</h2>
-      <p class="sub fade" style="margin-bottom:30px">We're launching with a single New Jersey report and adding deeper tiers as the data and delivery mature. No menu, no upsell maze &mdash; one clear product.</p>
-      <div class="offer">
-        <div class="offer-card fade">
-          <div class="badge">LAUNCHING FIRST</div>
-          <div class="tier-name">NJ Quick Scan</div>
-          <div class="tier-price">$69<span> / report</span></div>
-          <div class="tier-turn">Delivered within 2 business days</div>
-          <div class="feat"><span class="c">&#10003;</span> Parcel, zoning &amp; buildability flags</div>
-          <div class="feat"><span class="c">&#10003;</span> FEMA flood zone (live)</div>
-          <div class="feat"><span class="c">&#10003;</span> Wetlands &middot; Highlands &middot; Pinelands overlays</div>
-          <div class="feat"><span class="c">&#10003;</span> SSURGO soils &amp; septic feasibility</div>
-          <div class="feat"><span class="c">&#10003;</span> Suitability verdict + score</div>
-          <div class="order-btn">Ordering opens soon</div>
-          <div class="order-note">No payment yet. Reports open once final checks are complete.</div>
+      <div class="eyebrow2 fade">Free beta</div>
+      <h2 class="fade">The first 100 reports are free.</h2>
+      <p class="sub fade" style="margin-bottom:6px">No card, no account, no trial that quietly starts charging. We're running 100 real reports to prove the system before we price it &mdash; you get the report, we get the feedback.</p>
+
+      <div class="formwrap">
+        <div class="fcard fade">
+          <div class="badge">100 FREE &middot; NO CARD</div>
+
+          <form id="gtForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <!-- ↑↑↑ PASTE YOUR FORMSPREE ID ABOVE (replace YOUR_FORM_ID) ↑↑↑ -->
+            <input type="hidden" name="_subject" value="GroundTruth — free beta report request" />
+            <input type="hidden" name="_next" value="https://groundtruthpropertyai.com/?sent=1" />
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <div class="fld">
+              <label for="f_name">Your name <span class="req">*</span></label>
+              <input id="f_name" name="name" type="text" required placeholder="First and last" autocomplete="name" />
+            </div>
+            <div class="fld">
+              <label for="f_email">Email <span class="req">*</span></label>
+              <input id="f_email" name="email" type="email" required placeholder="you@example.com" autocomplete="email" inputmode="email" />
+            </div>
+            <div class="fld">
+              <label for="f_state">State <span class="req">*</span></label>
+              <select id="f_state" name="state" required>
+                <option value="NJ">New Jersey</option>
+                <option value="TN">Tennessee</option>
+              </select>
+            </div>
+            <div class="fld">
+              <label for="f_addr">Property address or parcel ID <span class="req">*</span></label>
+              <input id="f_addr" name="address" type="text" required placeholder="Street, town — or block &amp; lot / APN" />
+            </div>
+            <div class="fld">
+              <label for="f_use">What are you trying to decide?</label>
+              <textarea id="f_use" name="intent" placeholder="e.g. Can I put a house and septic on this 4-acre lot? Is it worth paying for a perc test?"></textarea>
+            </div>
+
+            <button class="submit" type="submit" id="gtSubmit">Send my free report request</button>
+            <p class="fineprint">
+              Delivered within 2 business days.<br />
+              We use your email only to send your report and beta follow-up. No selling, no sharing, unsubscribe any time.
+            </p>
+          </form>
+
+          <div class="thanks" id="gtThanks">
+            <div class="tick">&#10003;</div>
+            <h3>Request received.</h3>
+            <p>You'll get your report within 2 business days. If we need a clarifying detail about the parcel, we'll email you first.</p>
+          </div>
         </div>
-        <div class="soon-card fade">
-          <h4>Coming soon</h4>
-          <div class="soon-item"><span>NJ Standard Report</span><span class="s">SOON</span></div>
-          <div class="soon-item"><span>NJ Premium / Full Due Diligence</span><span class="s">SOON</span></div>
-          <div class="soon-item"><span>Tennessee coverage</span><span class="s">PHASE 3</span></div>
-          <p style="color:var(--dgray);font-size:.9rem;margin-top:16px">Want first access the day NJ reports open? Tell us the property you're watching.</p>
-          <a class="notify" href="mailto:reports@groundtruthpropertyai.com?subject=Notify%20me%20%E2%80%94%20NJ%20Quick%20Scan&body=NJ%20property%20address%3A%20%0AWhat%20I'm%20deciding%3A%20">Notify me at launch &rarr;</a>
+
+        <div class="sidecard fade">
+          <h4>What "free beta" actually means</h4>
+          <div class="sitem"><span class="c">&#9670;</span><div><b style="color:var(--white)">100 reports, then it closes.</b> When the counter hits zero the beta ends and paid reports open. No surprise charge to anyone in the beta.</div></div>
+          <div class="sitem"><span class="c">&#9670;</span><div><b style="color:var(--white)">A real report, not a teaser.</b> The same five sections we intend to sell &mdash; not a sample with the useful parts removed.</div></div>
+          <div class="sitem"><span class="c">&#9670;</span><div><b style="color:var(--white)">A human reviews every one.</b> That's the reason for the cap. Reports are checked before they're sent, and one person can only check so many.</div></div>
+          <div class="sitem"><span class="c">&#9670;</span><div><b style="color:var(--white)">We want the hard parcels.</b> Odd shapes, wetlands edges, rural lots with no sewer. Those teach us the most.</div></div>
+
+          <div class="notecard">
+            <b style="color:var(--gold2)">If the queue gets long</b><br />
+            We'd rather tell you than miss the date. If we're backed up you'll get an email with a realistic day &mdash; not silence.
+          </div>
         </div>
       </div>
     </div>
@@ -232,21 +365,13 @@
   <section>
     <div class="wrap">
       <div class="eyebrow2 fade">How it works</div>
-      <h2 class="fade">An NJ address in. A clear report out.</h2>
+      <h2 class="fade">An address in. A clear report out.</h2>
       <div class="steps">
-        <div class="step fade"><div class="n">STEP 1</div><h4>Send an NJ address</h4><p>Any New Jersey property you're weighing &mdash; a home, a lot, a farm parcel.</p></div>
+        <div class="step fade"><div class="n">STEP 1</div><h4>Send an address</h4><p>Any New Jersey or Tennessee property you're weighing &mdash; a home, a lot, a farm parcel.</p></div>
         <div class="step fade"><div class="n">STEP 2</div><h4>We pull the public record</h4><p>Parcel, flood, wetlands, regulatory overlays and soils, evaluated by our own model.</p></div>
-        <div class="step fade"><div class="n">STEP 3</div><h4>You get the report</h4><p>One clear document with sourced findings and a suitability verdict, within 2 business days.</p></div>
+        <div class="step fade"><div class="n">STEP 3</div><h4>A person checks it</h4><p>Every report is reviewed before it leaves &mdash; 30 years of construction and infrastructure experience behind the read.</p></div>
+        <div class="step fade"><div class="n">STEP 4</div><h4>You get the report</h4><p>One clear document with sourced findings and a suitability verdict, within 2 business days.</p></div>
       </div>
-    </div>
-  </section>
-
-  <!-- SAMPLE -->
-  <section>
-    <div class="wrap">
-      <div class="eyebrow2 fade">Proof</div>
-      <h2 class="fade">A full sample report will be available at launch.</h2>
-      <p class="sub fade">We'd rather show you a real, anonymized New Jersey report than a mockup. It'll be here the day ordering opens, so you can see exactly what you're buying before you spend a dollar.</p>
     </div>
   </section>
 
@@ -256,12 +381,14 @@
       <div class="eyebrow2 fade">Questions</div>
       <h2 class="fade">Straight answers.</h2>
       <div class="faq fade">
+        <details><summary>Why is it free? What's the catch?</summary><p>There isn't one. We're new, and a report nobody has read is worth nothing. A hundred real reports on real parcels is how we find our gaps and learn what buyers actually need &mdash; which is also how we'll set a fair price later. You keep the report either way, and nobody in the beta is charged retroactively.</p></details>
+        <details><summary>Will you ask for a card?</summary><p>No. There is no card field, no account, and no trial that converts into a subscription. When the 100 free reports are gone, the beta simply closes.</p></details>
         <details><summary>Is this a home inspection?</summary><p>No. A home inspector evaluates the physical condition of a structure on site. GroundTruth analyzes the public record around a parcel &mdash; flood, wetlands, regulatory overlays, zoning, soils &mdash; to tell you what the land will and won't allow. The two are complementary.</p></details>
         <details><summary>How is this different from Zillow or Redfin?</summary><p>Those are listing databases. GroundTruth produces a verdict: it synthesizes regulatory and environmental data into a clear read on what you can actually do with a parcel &mdash; the part a listing never shows.</p></details>
-        <details><summary>What does the NJ Quick Scan include?</summary><p>Parcel and zoning/buildability flags, FEMA flood zone, NJ DEP regulatory overlays (wetlands, Highlands, Pinelands), USDA soils with a septic-feasibility signal, and an owned suitability verdict with a score. Every claim cites its source.</p></details>
-        <details><summary>Do I need a specific property to order?</summary><p>An address gives the most precise report. If you're still researching, we can scope a report to a county or area as that option opens.</p></details>
-        <details><summary>How long does delivery take?</summary><p>Within two business days. We'd rather set a window we beat every time than promise an hour and miss it.</p></details>
-        <details><summary>Is this professional or legal advice?</summary><p>No. Reports compile public and licensed data for informational purposes and present a suitability verdict for your own decision. They are not legal, financial, real-estate, or engineering advice. Always verify findings independently.</p></details>
+        <details><summary>Does this replace a perc test or a wetland delineation?</summary><p>No, and it isn't meant to. Those are field studies costing hundreds to thousands of dollars. This report tells you whether a parcel is worth spending that money on &mdash; and which questions to ask when you do.</p></details>
+        <details><summary>Do I need a specific property?</summary><p>An address or parcel ID gives the most precise report. If you're still researching an area, say so in the form and we'll scope what we can.</p></details>
+        <details><summary>How long does delivery take?</summary><p>Within two business days. We'd rather set a window we beat every time than promise an hour and miss it. If the queue backs up, you'll get an email with a real date instead of silence.</p></details>
+        <details><summary>Is this professional or legal advice?</summary><p>No. Reports compile public and licensed data for informational purposes and present a suitability verdict for your own decision. They are not legal, financial, real-estate, or engineering advice. Always verify findings independently before acting.</p></details>
       </div>
     </div>
   </section>
@@ -272,19 +399,75 @@
     <div class="foot">
       <div>
         <div class="co">GroundTruth Property AI</div>
-        <div style="font-family:var(--mono);font-size:12px;color:var(--dgray);margin-top:6px">A Faridunhill LLC company &middot; New Jersey</div>
+        <div style="font-family:var(--mono);font-size:12px;color:var(--dgray);margin-top:6px">A Faridunhill LLC company &middot; New Jersey &amp; Tennessee</div>
         <div style="font-family:var(--mono);font-size:12px;margin-top:10px"><a href="mailto:info@groundtruthpropertyai.com">info@groundtruthpropertyai.com</a></div>
       </div>
-      <div class="legal">
-        GroundTruth Property AI compiles property information from public and licensed data sources and presents a suitability verdict for the buyer's own decision. Reports are for informational purposes only and are <strong style="color:var(--mgray)">not legal, financial, real-estate, or professional engineering advice</strong>. Listed credentials describe construction and infrastructure experience and do not represent licensed professional engineering services. Verify all findings independently before acting.
+      <div>
+        <div class="legal">
+          GroundTruth Property AI compiles property information from public and licensed data sources and presents a suitability verdict for the buyer's own decision. Reports are for informational purposes only and are <strong style="color:var(--mgray)">not legal, financial, real-estate, or professional engineering advice</strong>. Listed credentials describe construction and infrastructure experience and do not represent licensed professional engineering services. Reports provided at no charge during the beta period are furnished as-is and without warranty of any kind. Verify all findings independently before acting.
+        </div>
+        <div class="legal">
+          <strong style="color:var(--mgray)">Privacy.</strong> We collect only the name, email and property details you submit. We use them to produce and deliver your report and to contact you about the beta. We do not sell or share your information with third parties. Email <a href="mailto:info@groundtruthpropertyai.com">info@groundtruthpropertyai.com</a> to have your data removed at any time.
+        </div>
       </div>
     </div>
   </div>
 </footer>
 
 <script>
+/* ============================================================
+   BETA CAP — the only number you edit.
+   After each report you deliver, raise CLAIMED by 1 and push.
+   When CLAIMED reaches CAP the form closes itself automatically.
+   ============================================================ */
+const CAP     = 100;
+const CLAIMED = 0;
+
+(function(){
+  const left = Math.max(0, CAP - CLAIMED);
+  const set = (id,v)=>{const el=document.getElementById(id); if(el) el.textContent=v};
+  set('cLeft',left); set('pillLeft',left);
+  const bar=document.getElementById('cBar'); if(bar) bar.style.width=(left/CAP*100)+'%';
+
+  /* Close the beta when the cap is reached */
+  if(left===0){
+    const btn=document.getElementById('gtSubmit');
+    if(btn){btn.disabled=true;btn.textContent='Free beta is full — waitlist open';}
+    document.querySelectorAll('#gtForm [required]').forEach(el=>el.required=false);
+  }
+
+  /* State-specific report copy */
+  const COPY = {
+    NJ:{s1:'NJ MOD-IV parcel record, zoning class, and what it permits.',
+        s3:'NJ DEP freshwater wetlands, Highlands area, Pinelands CMP.',
+        s4:'USDA SSURGO soil class and septic suitability signal.'},
+    TN:{s1:'County parcel record (all 95 counties), zoning class, and what it permits.',
+        s3:'National Wetlands Inventory, floodway and known karst/sinkhole indicators.',
+        s4:'USDA SSURGO soil class and TDEC subsurface-septic suitability signal.'}
+  };
+  document.querySelectorAll('.tab').forEach(tab=>{
+    tab.addEventListener('click',()=>{
+      document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected','false'));
+      tab.setAttribute('aria-selected','true');
+      const c=COPY[tab.dataset.state];
+      for(const k in c) set(k,c[k]);
+      const sel=document.getElementById('f_state'); if(sel) sel.value=tab.dataset.state;
+    });
+  });
+
+  /* Show thank-you when Formspree redirects back with ?sent=1 */
+  if(new URLSearchParams(location.search).get('sent')==='1'){
+    const f=document.getElementById('gtForm'), t=document.getElementById('gtThanks');
+    if(f&&t){f.style.display='none';t.classList.add('on');}
+    document.getElementById('request').scrollIntoView();
+    if(window.gtag) gtag('event','generate_lead');
+    if(window.fbq)  fbq('track','Lead');
+  }
+
+  /* Scroll animations */
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.12});
   document.querySelectorAll('.fade').forEach((el,i)=>{el.style.transitionDelay=(Math.min(i,6)*55)+'ms';io.observe(el)});
+})();
 </script>
 </body>
 </html>
